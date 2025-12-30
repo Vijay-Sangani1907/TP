@@ -2,37 +2,37 @@
 export const SCHEDULE = {
   day1: {
     id: "day1",
-    title: "Day 01: The Singularity",
+    title: "Day 01: Welcome Ceremony & Launch of Project Exhibition",
     date: "OCT 12",
-    theme: "AI & Future",
+    theme: "Exhibition and Hackathon",
     color: "#00f3ff",
     events: [
       { 
         id: 1, 
-        title: "Keynote: Beyond AGI", 
+        title: "Welcome Ceremony", 
         time: "09:00 AM", 
-        speaker: "Dr. Sarah Connors",
+        speaker: "Shri Sunil Rane Sir & Guest of Honor",
         image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 2, 
-        title: "Neural Links Workshop", 
-        time: "11:30 AM", 
-        speaker: "Elon M.",
+        title: "Speech", 
+        time: "10:15 AM", 
+        speaker: "Shri Sunil Rane Sir & Guest of Honour",
         image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 3, 
-        title: "Cyber-Security Trends", 
-        time: "02:00 PM", 
+        title: "Launch of Project Exhibition & Guided Exhibition by Industry People", 
+        time: "11:15 PM", 
         speaker: "Mr. Robot",
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 4, 
-        title: "Quantum Computing 101", 
-        time: "04:00 PM", 
-        speaker: "Schrodinger's Cat",
+        title: "Inaugration of Atharva Hackathon", 
+        time: "12:00 PM", 
+        speaker: "Shri Sunil Rane Sir & Guest of Honour",
         image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&auto=format&fit=crop&q=60"
       },
     ]
