@@ -39,36 +39,36 @@ export const SCHEDULE = {
   },
   day2: {
     id: "day2",
-    title: "Day 02: Digital Realms",
-    date: "OCT 13",
-    theme: "VR / AR / Metaverse",
+    title: "Day 02: Tech Talks",
+    date: "29 Jan",
+    theme: "Tech Seminars",
     color: "#bc13fe",
     events: [
       { 
         id: 1, 
-        title: "Building the Metaverse", 
-        time: "10:00 AM", 
-        speaker: "Ready Player One",
+        title: "Tech Talk 1", 
+        time: "9:30 AM", 
+        speaker: "Speaker 1",
         image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 2, 
-        title: "Haptic Feedback Tech", 
-        time: "01:00 PM", 
-        speaker: "Immersion Labs",
+        title: "Tech Talk 2", 
+        time: "11:15 AM", 
+        speaker: "Speaker 2",
         image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 3, 
-        title: "Virtual Economies", 
-        time: "03:30 PM", 
+        title: "Hands on CyberSecurity Workshop", 
+        time: "01:15 PM", 
         speaker: "Satoshi N.",
         image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 4, 
-        title: "AR in Healthcare", 
-        time: "05:00 PM", 
+        title: "Exhibition Walk", 
+        time: "03:15 PM", 
         speaker: "MediTech AI",
         image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&auto=format&fit=crop&q=60"
       },
