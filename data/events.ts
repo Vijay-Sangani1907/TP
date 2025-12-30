@@ -77,7 +77,7 @@ export const SCHEDULE = {
   day3: {
     id: "day3",
     title: "Day 03: Human upgrade",
-    date: "OCT 14",
+    date: "JAN 30th",
     theme: "Bio-Hacking",
     color: "#faff00",
     events: [
