@@ -96,7 +96,7 @@ const App: React.FC = () => {
         <div className="container hero-content">
             {/* 1. Date */}
             <div className="hero-date">
-                OCTOBER 12–14, 2025
+                JANUARY 28th–30th, 2026
             </div>
 
             {/* 2. Event Name */}

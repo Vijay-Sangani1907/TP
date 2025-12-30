@@ -83,28 +83,28 @@ export const SCHEDULE = {
     events: [
       { 
         id: 1, 
-        title: "CRISPR & You", 
+        title: "Industry Walk ", 
         time: "09:30 AM", 
         speaker: "Gattaca Inst.",
         image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 2, 
-        title: "Synthetic Limbs", 
+        title: "Hands On Tech Projects", 
         time: "12:00 PM", 
         speaker: "Cyberdyne Systems",
         image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 3, 
-        title: "Memory Augmentation", 
+        title: "Valedictory", 
         time: "02:30 PM", 
         speaker: "Total Recall Inc.",
         image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 4, 
-        title: "Closing Ceremony", 
+        title: "Prize DistributionClosing Ceremony", 
         time: "06:00 PM", 
         speaker: "The Organizers",
         image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&auto=format&fit=crop&q=60"
