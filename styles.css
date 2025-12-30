@@ -1,0 +1,732 @@
+
+:root {
+  --bg-dark: #050510;
+  --neon-cyan: #00f3ff;
+  --neon-purple: #bc13fe;
+  --neon-yellow: #faff00;
+  --text-main: #e0e0e0;
+  --glass: rgba(255, 255, 255, 0.05);
+  --border: rgba(255, 255, 255, 0.1);
+  --card-width: 300px;
+  --card-height: 400px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Navbar Styles */
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+/* Ensure navbar logo keeps original colors (avoid blend/mask from backdrop) */
+.nav-logo {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  display: block;
+}
+
+/* Desktop Links Wrapper */
+.nav-right-desktop {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.nav-link-text {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-link-text:hover {
+  color: var(--neon-cyan);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(5, 5, 16, 0.95);
+  border: 1px solid var(--border);
+  min-width: 180px;
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  padding: 10px 0;
+  backdrop-filter: blur(10px);
+  z-index: 1001;
+}
+
+.nav-item:hover .dropdown-menu {
+  display: flex; /* Show on hover (Desktop) */
+}
+
+.dropdown-item {
+  padding: 10px 20px;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--neon-cyan);
+  padding-left: 25px;
+}
+
+/* Mobile Toggle & Menu */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1100;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 80px; /* Below navbar */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 80px);
+  background: rgba(5, 5, 16, 0.85); /* Semi-transparent for blur visibility */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 40px 30px;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  z-index: 1050;
+}
+
+.mobile-menu-overlay.open {
+  transform: translateX(0);
+}
+
+.mobile-menu-item {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 15px;
+}
+
+.mobile-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mobile-dropdown {
+  display: none;
+  flex-direction: column;
+  padding-left: 20px;
+  margin-top: 15px;
+  gap: 15px;
+  border-left: 2px solid var(--neon-cyan);
+}
+
+.mobile-dropdown.open {
+  display: flex;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Utility for hiding desktop elements on mobile */
+.nav-cta-desktop {
+  display: block;
+}
+
+@media (max-width: 992px) {
+  .nav-right-desktop { display: none; } /* Hides desktop links AND CTA button */
+  .mobile-toggle { display: block; } /* Show hamburger */
+}
+
+/* Reused Buttons/Utilities */
+.btn-ticket {
+  background: var(--neon-purple);
+  border: none;
+  padding: 10px 25px;
+  color: #fff;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: transform 0.2s;
+  white-space: nowrap;
+}
+
+.btn-ticket.mobile-btn {
+  width: 100%;
+  padding: 20px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.btn-ticket:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--neon-purple);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Footer logo image sizing */
+.footer-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Map placeholder image */
+.map-placeholder-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.95;
+}
+
+/* HERO SECTION STYLES */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 80px; /* Offset for sticky nav */
+  z-index: 1; /* Lower Z-index to allow Roadmap to slide over */
+}
+
+.hero-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 5, 16, 0.7); /* Darkens video for text readability */
+  z-index: 1;
+  background: radial-gradient(circle, rgba(5,5,16,0.4) 0%, rgba(5,5,16,1) 90%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Left align content */
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-date {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--neon-cyan);
+  border-radius: 50px;
+  color: var(--neon-cyan);
+  margin-bottom: 25px;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: rgba(0, 243, 255, 0.1);
+}
+
+/* TECHFEST 2025 - Adjusted Size (Smaller) */
+.hero-subtitle {
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Reduced from 6rem max */
+  font-weight: 900;
+  letter-spacing: 4px;
+  margin-bottom: 15px;
+  color: #fff;
+  text-align: left;
+  line-height: 1.1;
+  text-shadow: 0 0 30px rgba(0, 243, 255, 0.2);
+}
+
+/* FUTURE IS LOADING... */
+.hero-title {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem); /* Slightly adjusted to match hierarchy */
+  line-height: 1.2;
+  margin-bottom: 25px;
+  font-weight: 700;
+  text-align: left;
+  color: #e0e0e0;
+}
+
+.hero-title .text-neon-purple {
+  color: var(--neon-purple);
+  text-shadow: 0 0 20px rgba(188, 19, 254, 0.6);
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #ccc;
+  margin-bottom: 40px;
+  max-width: 600px;
+  text-align: left;
+}
+
+.btn-explore {
+  background: #fff;
+  color: #000;
+  font-size: 1.1rem;
+  padding: 15px 40px;
+}
+
+.btn-explore:hover {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 20px var(--neon-cyan);
+  transform: scale(1.05);
+}
+
+/* ROADMAP SECTION STYLES */
+.roadmap-section {
+  position: relative;
+  padding: 100px 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /* Add explicit solid background to cover the pinned hero */
+  background: linear-gradient(180deg, var(--bg-dark) 0%, #0a0a1a 50%, var(--bg-dark) 100%);
+  z-index: 2; /* Ensures it slides OVER the pinned hero */
+}
+
+.roadmap-title {
+  position: sticky;
+  top: 100px; /* Stick below navbar */
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 100px;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+  z-index: 20;
+}
+
+.roadmap-line {
+  position: absolute;
+  left: 50%;
+  top: 150px; /* Start below header */
+  bottom: 100px;
+  width: 2px;
+  background: var(--neon-cyan);
+  transform-origin: top;
+  box-shadow: 0 0 10px var(--neon-cyan);
+  z-index: 1;
+}
+
+.roadmap-nodes-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 150px; /* Space between nodes */
+  padding-top: 50px;
+  z-index: 2;
+}
+
+.roadmap-node {
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+}
+
+.roadmap-marker {
+  position: absolute;
+  left: 50%;
+  top: 30px; /* Align with text top approx */
+  transform: translateX(-50%);
+  width: 16px;
+  height: 16px;
+  background: #000;
+  border: 2px solid var(--neon-cyan);
+  border-radius: 50%;
+  z-index: 10;
+  box-shadow: 0 0 15px var(--neon-cyan);
+}
+
+.roadmap-half {
+  width: 50%;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.roadmap-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.roadmap-node.right .roadmap-content-wrapper {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.roadmap-node.left .roadmap-content-wrapper {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.roadmap-text {
+  cursor: pointer;
+}
+
+.roadmap-text:hover h3 {
+  color: #fff; /* Highlight date on hover */
+}
+
+.roadmap-arrow {
+  margin-top: 15px;
+  font-family: 'Orbitron';
+  font-size: 0.9rem;
+  color: var(--neon-cyan);
+  font-weight: bold;
+}
+
+/* Mobile Adjustments for Roadmap */
+@media (max-width: 768px) {
+  .roadmap-line {
+    left: 20px; /* Move line to left */
+  }
+  
+  .roadmap-marker {
+    left: 20px;
+  }
+  
+  .roadmap-title {
+    font-size: 2rem;
+    top: 90px;
+    margin-bottom: 50px;
+  }
+
+  .roadmap-node {
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  /* RESET width for mobile */
+  .roadmap-half {
+    width: 100%;
+    padding: 0 0 0 50px; /* Indent content */
+    display: none; /* Hide by default on mobile */
+  }
+
+  /* Only show the half that is ACTIVE (has content) */
+  .roadmap-half.active {
+    display: block !important;
+  }
+
+  /* Force all content to align left on mobile */
+  .roadmap-node.left .roadmap-content-wrapper,
+  .roadmap-node.right .roadmap-content-wrapper {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* DAY SECTION STYLES */
+.day-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0;
+}
+
+.day-bg-glow {
+  position: absolute;
+  top: 20%;
+  right: -10%;
+  width: 500px;
+  height: 500px;
+  filter: blur(150px);
+  opacity: 0.1;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* Day Header Styles */
+.header-full-width {
+  width: 100%;
+  padding: 0 40px; /* Gap from edge */
+  position: relative;
+  z-index: 1;
+  margin-bottom: 60px;
+}
+
+.day-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end; /* Align button to bottom of text block */
+  width: 100%;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.day-header-text {
+  text-align: left;
+  flex: 1;
+  min-width: 280px;
+}
+
+.btn-register-day {
+  background: rgba(0,0,0,0.3);
+  border: 1px solid #fff; /* Fallback */
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 15px 35px;
+  transition: all 0.3s;
+  height: fit-content;
+  margin-bottom: 10px; /* Align visually */
+}
+
+.btn-register-day:hover {
+  background: var(--btn-hover-color, #fff);
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px var(--btn-hover-color, #fff);
+}
+
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  touch-action: pan-y; /* Allow vertical scroll, handle horizontal in JS */
+  cursor: grab;
+}
+
+.carousel-wrapper:active {
+  cursor: grabbing;
+}
+
+.desktop-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.control-btn {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid #fff;
+  color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none; /* Hidden on mobile */
+  backdrop-filter: blur(5px);
+  transition: all 0.3s;
+}
+
+.control-btn:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 30px;
+  padding-left: 20px;
+  width: max-content;
+}
+
+/* EVENT CARD UPDATE - Larger, with Images */
+.event-card {
+  width: 350px; /* Reduced from 400px */
+  height: 450px; /* Reduced from 500px */
+  background: rgba(20, 20, 30, 0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 0; /* No padding on container to allow image bleed */
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255,255,255,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.event-image-container {
+  width: 100%;
+  height: 60%; /* Top 60% is image */
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.event-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.event-card:hover .event-image-container img {
+  transform: scale(1.1);
+}
+
+.event-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  pointer-events: none;
+}
+
+.event-details {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background: linear-gradient(180deg, rgba(30,30,40,0.4) 0%, rgba(5,5,10,0.8) 100%);
+}
+
+.event-meta {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: 1px;
+}
+
+.event-title {
+  font-size: 1.6rem;
+  margin: 0 0 10px 0;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.event-speaker {
+  font-size: 1rem;
+  color: #ccc;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+    .control-btn { display: block !important; }
+}
+
+/* Mobile Adjustments for Cards & Layout */
+@media (max-width: 768px) {
+  .header-full-width {
+    padding: 0 20px;
+  }
+
+  .event-card {
+    width: 260px; /* Reduced from 280px */
+    height: 360px; /* Reduced from 380px */
+  }
+  
+  .event-title {
+    font-size: 1.3rem;
+  }
+
+  .event-image-container {
+    height: 50%; /* Less image on mobile */
+  }
+
+  .day-header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .btn-register-day {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
