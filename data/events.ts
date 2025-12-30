@@ -11,7 +11,7 @@ export const SCHEDULE = {
         id: 1, 
         title: "Keynote: Beyond AGI", 
         time: "09:00 AM", 
-        speaker: "Dr. Sarah Connors",
+        speaker: "Vijay Sangani",
         image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&auto=format&fit=crop&q=60"
       },
       { 

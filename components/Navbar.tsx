@@ -13,7 +13,7 @@ const MENU_ITEMS = [
       { label: 'History', href: '#history' },
       { label: 'Events', href: '#events' },
       { label: 'Partners', href: '#partners' },
-      { label: 'Know More', href: '#more' },
+      { label: 'Know More', href: 'https://atharvauniversity.org/' },
     ]
   },
   { 

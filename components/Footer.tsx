@@ -130,7 +130,7 @@ export const Footer: React.FC = () => {
       </div>
 
       <div style={{ textAlign: 'center', marginTop: '80px', color: '#666', fontSize: '0.9rem' }}>
-        &copy; Made by Vijay Sangani, Mayank, Shlok Nair, and Yug Sawant <br></br>
+        &copy; Made by Vijay Sangani, Mayank Bhuvad, Shlok Nair, and Yug Sawant <br></br>
         TechFest 2025
       </div>
     </footer>
