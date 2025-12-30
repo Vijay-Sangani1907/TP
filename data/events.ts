@@ -2,73 +2,77 @@
 export const SCHEDULE = {
   day1: {
     id: "day1",
-    title: "Day 01: The Singularity",
+    title: "Day 01: Welcome Ceremony & Launch of Project Exhibition",
     date: "OCT 12",
-    theme: "AI & Future",
+    theme: "Exhibition and Hackathon",
     color: "#00f3ff",
     events: [
       { 
         id: 1, 
-        title: "Keynote: Beyond AGI", 
+        title: "Welcome Ceremony", 
         time: "09:00 AM", 
+<<<<<<< HEAD
         speaker: "Vijay Sangani",
+=======
+        speaker: "Shri Sunil Rane Sir & Guest of Honor",
+>>>>>>> 1d920a2757c6c8ab5dfef31b523433256cb2f161
         image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 2, 
-        title: "Neural Links Workshop", 
-        time: "11:30 AM", 
-        speaker: "Elon M.",
+        title: "Speech", 
+        time: "10:15 AM", 
+        speaker: "Shri Sunil Rane Sir & Guest of Honour",
         image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 3, 
-        title: "Cyber-Security Trends", 
-        time: "02:00 PM", 
+        title: "Launch of Project Exhibition & Guided Exhibition by Industry People", 
+        time: "11:15 PM", 
         speaker: "Mr. Robot",
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 4, 
-        title: "Quantum Computing 101", 
-        time: "04:00 PM", 
-        speaker: "Schrodinger's Cat",
+        title: "Inaugration of Atharva Hackathon", 
+        time: "12:00 PM", 
+        speaker: "Shri Sunil Rane Sir & Guest of Honour",
         image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=500&auto=format&fit=crop&q=60"
       },
     ]
   },
   day2: {
     id: "day2",
-    title: "Day 02: Digital Realms",
-    date: "OCT 13",
-    theme: "VR / AR / Metaverse",
+    title: "Day 02: Tech Talks",
+    date: "29 Jan",
+    theme: "Tech Seminars",
     color: "#bc13fe",
     events: [
       { 
         id: 1, 
-        title: "Building the Metaverse", 
-        time: "10:00 AM", 
-        speaker: "Ready Player One",
+        title: "Tech Talk 1", 
+        time: "9:30 AM", 
+        speaker: "Speaker 1",
         image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 2, 
-        title: "Haptic Feedback Tech", 
-        time: "01:00 PM", 
-        speaker: "Immersion Labs",
+        title: "Tech Talk 2", 
+        time: "11:15 AM", 
+        speaker: "Speaker 2",
         image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 3, 
-        title: "Virtual Economies", 
-        time: "03:30 PM", 
+        title: "Hands on CyberSecurity Workshop", 
+        time: "01:15 PM", 
         speaker: "Satoshi N.",
         image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 4, 
-        title: "AR in Healthcare", 
-        time: "05:00 PM", 
+        title: "Exhibition Walk", 
+        time: "03:15 PM", 
         speaker: "MediTech AI",
         image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&auto=format&fit=crop&q=60"
       },
@@ -77,34 +81,34 @@ export const SCHEDULE = {
   day3: {
     id: "day3",
     title: "Day 03: Human upgrade",
-    date: "OCT 14",
+    date: "JAN 30th",
     theme: "Bio-Hacking",
     color: "#faff00",
     events: [
       { 
         id: 1, 
-        title: "CRISPR & You", 
+        title: "Industry Walk ", 
         time: "09:30 AM", 
         speaker: "Gattaca Inst.",
         image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 2, 
-        title: "Synthetic Limbs", 
+        title: "Hands On Tech Projects", 
         time: "12:00 PM", 
         speaker: "Cyberdyne Systems",
         image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 3, 
-        title: "Memory Augmentation", 
+        title: "Valedictory", 
         time: "02:30 PM", 
         speaker: "Total Recall Inc.",
         image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=500&auto=format&fit=crop&q=60"
       },
       { 
         id: 4, 
-        title: "Closing Ceremony", 
+        title: "Prize DistributionClosing Ceremony", 
         time: "06:00 PM", 
         speaker: "The Organizers",
         image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&auto=format&fit=crop&q=60"
