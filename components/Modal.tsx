@@ -1,3 +1,14 @@
+ /*  --------------------------------------------------------------------------
+ *   TECHITHON | OFFICIAL SOURCE CODE
+ *  --------------------------------------------------------------------------
+ *
+ *   Designed & Developed by: Vijay Sangani
+ *   
+ *   Contributors: Mayank Bhuvad, Shlok Nair, Yug Sawant
+ *
+ *   (c) 2026 All Rights Reserved.
+ *  --------------------------------------------------------------------------
+ */
 
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
