@@ -2,7 +2,7 @@
 export const SCHEDULE = {
   day1: {
     id: "day1",
-    title: "Day 01: Welcome Ceremony & Launch of Project Exhibition",
+        title: "Day 01: Welcome Ceremony & Launch of Project Exhibition",
     date: "OCT 12",
     theme: "Exhibition and Hackathon",
     color: "#00f3ff",
@@ -11,11 +11,7 @@ export const SCHEDULE = {
         id: 1, 
         title: "Welcome Ceremony", 
         time: "09:00 AM", 
-<<<<<<< HEAD
-        speaker: "Vijay Sangani",
-=======
         speaker: "Shri Sunil Rane Sir & Guest of Honor",
->>>>>>> 1d920a2757c6c8ab5dfef31b523433256cb2f161
         image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&auto=format&fit=crop&q=60"
       },
       { 
@@ -109,9 +105,9 @@ export const SCHEDULE = {
       { 
         id: 4, 
         title: "Prize DistributionClosing Ceremony", 
-        time: "06:00 PM", 
+        time: "06:00 PM",
         speaker: "The Organizers",
-        image: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=500&auto=format&fit=crop&q=60"
+        image: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=500&auto=format&fit=crop&q=60"
       },
     ]
   }

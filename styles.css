@@ -37,9 +37,11 @@ h1, h2, h3, h4 {
   height: 80px;
 }
 
-/* Ensure navbar logo keeps original colors (avoid blend/mask from backdrop) */
+/* Ensure navbar logo keeps original colors (avoid blend/mask from backdrop)
+   and subtly darken it so it doesn't look washed-out on the header */
 .nav-logo {
-  filter: none !important;
+  /* Slightly reduce brightness and tweak contrast/saturation to darken */
+  filter: brightness(0.7) saturate(1.05) contrast(0.95) !important;
   mix-blend-mode: normal !important;
   opacity: 1 !important;
   display: block;

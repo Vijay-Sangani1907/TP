@@ -102,7 +102,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
             
             {/* Event Name */}
             <div style={{ fontSize: '1.2rem', fontWeight: 700, fontFamily: 'Orbitron', letterSpacing: '1px' }}>
-              TECHITHON
             </div>
           </div>
 
