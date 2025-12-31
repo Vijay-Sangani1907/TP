@@ -15,7 +15,7 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const tabs = [
     { 
       label: 'IEEE\nGeneral Registration', 
-      color: '#00f3ff', 
+      color: '#0077cc', 
       url: '../assests/IEEE reg.jpeg',
       description: 'Experience Innovation beyond classrooms. Register now to be part of the IEEE tech movement shaping tomorrow.'
     },
