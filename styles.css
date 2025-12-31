@@ -37,8 +37,14 @@ h1, h2, h3, h4 {
   height: 80px;
 }
 
-/* Ensure navbar logo keeps original colors (avoid blend/mask from backdrop)
-   and subtly darken it so it doesn't look washed-out on the header */
+/* Left block wrapper for logo(s) */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+
 .nav-logo {
   /* Slightly reduce brightness and tweak contrast/saturation to darken */
   filter: brightness(0.7) saturate(1.05) contrast(0.95) !important;
@@ -46,6 +52,19 @@ h1, h2, h3, h4 {
   opacity: 1 !important;
   display: block;
 }
+
+
+.nav-logo-alt {
+  filter: brightness(0.85) saturate(1.02) contrast(0.95) !important;
+  mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  display: block;
+  object-fit: contain;
+}
+
+/* Default logo sizing (CSS controls size; remove inline width/height reliance) */
+.nav-logo { max-height: 90px; height: auto; width: auto; }
+.nav-logo-alt { max-height: 100px; height: auto; width: auto; }
 
 /* Desktop Links Wrapper */
 .nav-right-desktop {
@@ -189,6 +208,16 @@ h1, h2, h3, h4 {
 @media (max-width: 992px) {
   .nav-right-desktop { display: none; } /* Hides desktop links AND CTA button */
   .mobile-toggle { display: block; } /* Show hamburger */
+  /* Shrink logos on mobile but keep both visible (not hidden) */
+  .nav-logo { max-height: 75px; }
+  .nav-logo-alt { display: block; max-height: 75px; opacity: 0.95; }
+  .nav-left { gap: 10px; }
+  .container { padding: 0 12px; }
+}
+
+@media (min-width: 993px) {
+  /* Desktop: give a bit more horizontal padding so left/right feel pulled outward */
+  .container { padding: 0 36px; }
 }
 
 /* Reused Buttons/Utilities */

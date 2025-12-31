@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import logoSrc from '../assests/logo.png';
+import ieeeLogoSrc from '../assests/IEEE logo.png';
 
 const MENU_ITEMS = [
   { label: 'Home', href: '#' },
@@ -87,22 +88,23 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
         <div className="container nav-container">
           
           {/* Left Side: Logo Section */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
+          <div className="nav-left" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
             {/* Clickable University Logo - Rectangle */}
             <a href="https://atharvauniversity.org" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                   <img 
                     src={logoSrc}
                     alt="Atharva University Logo" 
-                    width={150} height={50}
                     className="nav-logo"
+                  />
+                  <img
+                    src={ieeeLogoSrc}
+                    alt="IEEE Logo"
+                    className="nav-logo-alt"
+                    style={{ marginLeft: 12 }}
                   />
                 </div>
             </a>
-            
-            {/* Event Name */}
-            <div style={{ fontSize: '1.2rem', fontWeight: 700, fontFamily: 'Orbitron', letterSpacing: '1px' }}>
-            </div>
           </div>
 
           {/* Right Side: Desktop Menu & Buttons (Hidden on Mobile) */}
