@@ -13,8 +13,8 @@
 export const SCHEDULE = {
   day1: {
     id: "day1",
-        title: "Day 01: Welcome Ceremony & Launch of Project Exhibition",
-    date: "OCT 12",
+    title: "Day 01: Welcome Ceremony & Launch of Project Exhibition",
+    date: "28th Jan",
     theme: "Exhibition and Hackathon",
     color: "#00f3ff",
     events: [
@@ -23,7 +23,8 @@ export const SCHEDULE = {
         title: "Welcome Ceremony", 
         time: "09:00 AM", 
         speaker: "Shri Sunil Rane Sir & Guest of Honor",
-        image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&auto=format&fit=crop&q=60"
+        image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=500&auto=format&fit=crop&q=60",
+        description: "Join us for the grand welcome ceremony where Shri Sunil Rane Sir and our esteemed Guest of Honor will inaugurate the Techithon 2026. Kickstart your journey with inspiring words and a vision for the days ahead." // Do this for other events as needed
       },
       { 
         id: 2, 
@@ -36,7 +37,7 @@ export const SCHEDULE = {
         id: 3, 
         title: "Launch of Project Exhibition & Guided Exhibition by Industry People", 
         time: "11:15 PM", 
-        speaker: "Mr. Robot",
+        speaker: "Industry Experts",
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&auto=format&fit=crop&q=60"
       },
       { 
@@ -51,7 +52,7 @@ export const SCHEDULE = {
   day2: {
     id: "day2",
     title: "Day 02: Tech Talks",
-    date: "29 Jan",
+    date: "29th Jan",
     theme: "Tech Seminars",
     color: "#bc13fe",
     events: [
@@ -88,7 +89,7 @@ export const SCHEDULE = {
   day3: {
     id: "day3",
     title: "Day 03: Human upgrade",
-    date: "JAN 30th",
+    date: "30th Jan",
     theme: "Bio-Hacking",
     color: "#faff00",
     events: [

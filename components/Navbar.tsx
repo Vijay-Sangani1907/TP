@@ -29,8 +29,8 @@ const MENU_ITEMS = [
     ]
   },
   { 
-    label: 'TechFest', 
-    href: '#techfest',
+    label: 'TechIthon', 
+    href: '#techithon',
     children: [
       { label: 'Day 1', href: '#day1' },
       { label: 'Day 2', href: '#day2' },

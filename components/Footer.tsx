@@ -141,8 +141,8 @@ export const Footer: React.FC = () => {
       </div>
 
       <div style={{ textAlign: 'center', marginTop: '80px', color: '#666', fontSize: '0.9rem' }}>
-        &copy; Made by YJS, Mayank Bhuvad, Shlok Nair, and Yug Sawant <br></br>
-        TechFest 2025
+                &copy; {new Date().getFullYear()} Made by YJS, Mayank Bhuvad, Shlok Nair, and Yug Sawant <br></br>
+                TechIthon 2025
       </div>
     </footer>
   );

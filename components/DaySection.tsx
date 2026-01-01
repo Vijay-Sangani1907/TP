@@ -10,8 +10,9 @@
  *  --------------------------------------------------------------------------
  */
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { EventModal } from './EventModal';
 
 interface Event {
   id: number;
@@ -19,6 +20,7 @@ interface Event {
   time: string;
   speaker: string;
   image?: string;
+  description?: string;
 }
 
 interface DaySectionProps {
@@ -36,9 +38,14 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
   const marqueeRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
   
+  //State for Event Modal
+  const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
+
   // Interaction Refs
   const touchStartX = useRef(0);
   const progressStart = useRef(0);
+  const isDragging = useRef(false);
+  const wheelTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     if (!marqueeRef.current) return;
@@ -105,8 +112,45 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
     }
   };
 
+    // [NEW] Handle Trackpad/Mouse Wheel Horizontal Scroll
+  const handleWheel = (e: React.WheelEvent) => {
+    if (!tweenRef.current || !marqueeRef.current) return;
+
+    // Only engage if the horizontal scroll (deltaX) is dominant
+    // This allows normal vertical page scrolling to happen without interference
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        
+        const loopWidth = marqueeRef.current.scrollWidth / 2;
+        const progressDelta = e.deltaX / loopWidth;
+        
+        const currentProg = tweenRef.current.progress();
+        
+        // Add delta and wrap the progress between 0 and 1
+        let newProgress = currentProg + progressDelta;
+        newProgress = newProgress - Math.floor(newProgress);
+        
+        // Update GSAP instantly
+        tweenRef.current.progress(newProgress);
+        
+        // Pause auto-scroll while user is actively scrolling
+        gsap.to(tweenRef.current, { timeScale: 0, duration: 0.1, overwrite: true });
+        
+        // Clear existing timeout
+        if (wheelTimeout.current) clearTimeout(wheelTimeout.current);
+        
+        // Resume auto-scroll after interaction stops (debounce)
+        wheelTimeout.current = setTimeout(() => {
+            if (tweenRef.current) {
+                gsap.to(tweenRef.current, { timeScale: 1, duration: 0.5 });
+            }
+        }, 500);
+    }
+  };
+
+
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!tweenRef.current) return;
+    isDragging.current = false;
     touchStartX.current = e.touches[0].clientX;
     progressStart.current = tweenRef.current.progress();
     gsap.to(tweenRef.current, { timeScale: 0, duration: 0.2 }); // Quick pause
@@ -117,6 +161,11 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
     
     const deltaX = e.touches[0].clientX - touchStartX.current;
     
+    // If moved significantly, consider it a drag
+    if (Math.abs(deltaX) > 5) {
+        isDragging.current = true;
+    }
+
     // Calculate progress change based on width
     // content width is roughly 200% of visible due to cloning.
     // xPercent -50 represents one full cycle.
@@ -137,6 +186,13 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
     if (tweenRef.current) {
         gsap.to(tweenRef.current, { timeScale: 1, duration: 0.5 });
     }
+    // We don't reset isDragging here immediately to allow onClick to read it
+    setTimeout(() => { isDragging.current = false; }, 100);
+  };
+
+  const handleEventClick = (event: Event) => {
+    if (isDragging.current) return;
+    setSelectedEvent(event);
   };
 
   return (
@@ -194,6 +250,7 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
         className="carousel-wrapper" 
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onWheel={handleWheel}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
@@ -219,7 +276,11 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
           className="marquee-track"
         >
           {data.events.map((event, i) => (
-             <div key={`${event.id}-${i}`} className="event-card">
+             <div 
+                key={`${event.id}-${i}`} 
+                className="event-card"
+                onClick={() => handleEventClick(event)}
+              >
                 
                 {/* Image Section */}
                 <div className="event-image-container">
@@ -263,6 +324,12 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
           ))}
         </div>
       </div>
+      <EventModal
+        isOpen={!!selectedEvent}
+        onClose={() => setSelectedEvent(null)}
+        event={selectedEvent}
+        themeColor={data.color}
+      />
     </section>
   );
 };
