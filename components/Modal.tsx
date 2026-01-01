@@ -27,19 +27,19 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
     { 
       label: 'IEEE\nGeneral Registration', 
       color: '#0077cc', 
-      url: '../assests/IEEE reg.jpeg',
+      url: 'https://docs.google.com/forms/d/e/1FAIpQLSf6btuHZMbS4Dc2SGlRbnJtN7jgL8JbetunbeSu6uUS2xOA0Q/viewform',
       description: 'Experience Innovation beyond classrooms. Register now to be part of the IEEE tech movement shaping tomorrow.'
     },
     { 
       label: 'Project\nExhibition Registration', 
       color: '#bc13fe', 
-      url: '../assests/IEEE exhb reg.jpeg',
+      url: 'https://docs.google.com/forms/d/e/1FAIpQLSflsPPY-tHWAbpY78lQ60ErgWIBgxpGcsaCXZtSJ3W2yCPQtg/viewform?pli=1',
       description: 'Turn your Idea Into Impact. Register now and showcase your Innovation on a Pan-Indie IEEE platform'
     },
     { 
       label: 'Hackathon\nRegistration', 
       color: '#faff00', 
-      url: '../assests/IEEE hack.jpeg',
+      url: 'https://docs.google.com/forms/d/e/1FAIpQLSc_L-XNWeC7eF9I2nD21I6EHshfB4kzP5wujBo9SeNNQplMBA/viewform',
       description: 'Code. Build. Compete. Join the hackathon where ideas turn into real-world solutions.'
     }
   ];
