@@ -38,14 +38,20 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
   const marqueeRef = useRef<HTMLDivElement>(null);
   const tweenRef = useRef<gsap.core.Tween | null>(null);
   
-  //State for Event Modal
+  // State for Modal
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   // Interaction Refs
   const touchStartX = useRef(0);
   const progressStart = useRef(0);
   const isDragging = useRef(false);
-  const wheelTimeout = useRef<NodeJS.Timeout | null>(null);
+  
+  // Ref for wheel/trackpad timeout management
+  const wheelTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // [FIX] Create duplicates in React state/render cycle instead of DOM cloning
+  // This ensures event listeners (onClick) work for all items, including the looped ones.
+  const eventsToRender = [...data.events, ...data.events];
 
   useEffect(() => {
     if (!marqueeRef.current) return;
@@ -53,19 +59,12 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
     // Infinite Marquee Animation
     const content = marqueeRef.current;
     
-    // Clear potential duplicates from strict mode double-render
-    if (content.children.length === data.events.length) {
-       // Clone content for seamless loop
-      const originalContent = Array.from(content.children) as HTMLElement[];
-      originalContent.forEach(child => {
-          const clone = child.cloneNode(true);
-          content.appendChild(clone);
-      });
-    }
+    // [FIX] Removed manual DOM cloning logic here as it breaks React event binding.
+    // The items are now duplicated in the render method (eventsToRender).
 
     const ctx = gsap.context(() => {
         tweenRef.current = gsap.to(content, {
-            xPercent: -50,
+            xPercent: -50, // Moves half the width (which is exactly one set of events)
             duration: 35, // Slower duration for larger cards to be readable
             ease: "none",
             repeat: -1
@@ -112,7 +111,7 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
     }
   };
 
-    // [NEW] Handle Trackpad/Mouse Wheel Horizontal Scroll
+  // Handle Trackpad/Mouse Wheel Horizontal Scroll
   const handleWheel = (e: React.WheelEvent) => {
     if (!tweenRef.current || !marqueeRef.current) return;
 
@@ -147,10 +146,9 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
     }
   };
 
-
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!tweenRef.current) return;
-    isDragging.current = false;
+    isDragging.current = false; // Reset drag flag
     touchStartX.current = e.touches[0].clientX;
     progressStart.current = tweenRef.current.progress();
     gsap.to(tweenRef.current, { timeScale: 0, duration: 0.2 }); // Quick pause
@@ -191,8 +189,9 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
   };
 
   const handleEventClick = (event: Event) => {
-    if (isDragging.current) return;
-    setSelectedEvent(event);
+      // If we were dragging (on touch), don't open modal
+      if (isDragging.current) return;
+      setSelectedEvent(event);
   };
 
   return (
@@ -275,12 +274,13 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
           ref={marqueeRef}
           className="marquee-track"
         >
-          {data.events.map((event, i) => (
+          {/* [FIX] Render the doubled list in React directly */}
+          {eventsToRender.map((event, i) => (
              <div 
                 key={`${event.id}-${i}`} 
                 className="event-card"
                 onClick={() => handleEventClick(event)}
-              >
+             >
                 
                 {/* Image Section */}
                 <div className="event-image-container">
@@ -324,10 +324,11 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
           ))}
         </div>
       </div>
-      <EventModal
-        isOpen={!!selectedEvent}
-        onClose={() => setSelectedEvent(null)}
-        event={selectedEvent}
+
+      <EventModal 
+        isOpen={!!selectedEvent} 
+        onClose={() => setSelectedEvent(null)} 
+        event={selectedEvent} 
         themeColor={data.color}
       />
     </section>
