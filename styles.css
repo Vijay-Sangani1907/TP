@@ -1,5 +1,6 @@
- /*  --------------------------------------------------------------------------
- *   TECHITHON | OFFICIAL SOURCE CODE
+/*
+ *  --------------------------------------------------------------------------
+ *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
  *   Designed & Developed by: Vijay Sangani
@@ -48,22 +49,19 @@ h1, h2, h3, h4 {
   height: 80px;
 }
 
-/* Left block wrapper for logo(s) */
+/* Left block wrapper for logo */
 .nav-left {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-
 .nav-logo {
-  /* Slightly reduce brightness and tweak contrast/saturation to darken */
   filter: brightness(0.7) saturate(1.05) contrast(0.95) !important;
   mix-blend-mode: normal !important;
   opacity: 1 !important;
   display: block;
 }
-
 
 .nav-logo-alt {
   filter: brightness(0.85) saturate(1.02) contrast(0.95) !important;
@@ -73,7 +71,6 @@ h1, h2, h3, h4 {
   object-fit: contain;
 }
 
-/* Default logo sizing (CSS controls size; remove inline width/height reliance) */
 .nav-logo { max-height: 90px; height: auto; width: auto; }
 .nav-logo-alt { max-height: 100px; height: auto; width: auto; }
 
@@ -219,7 +216,6 @@ h1, h2, h3, h4 {
 @media (max-width: 992px) {
   .nav-right-desktop { display: none; } /* Hides desktop links AND CTA button */
   .mobile-toggle { display: block; } /* Show hamburger */
-  /* Shrink logos on mobile but keep both visible (not hidden) */
   .nav-logo { max-height: 75px; }
   .nav-logo-alt { display: block; max-height: 75px; opacity: 0.95; }
   .nav-left { gap: 10px; }
@@ -227,7 +223,6 @@ h1, h2, h3, h4 {
 }
 
 @media (min-width: 993px) {
-  /* Desktop: give a bit more horizontal padding so left/right feel pulled outward */
   .container { padding: 0 36px; }
 }
 
@@ -264,7 +259,6 @@ h1, h2, h3, h4 {
   padding: 0 20px;
 }
 
-/* Footer logo image sizing */
 .footer-logo {
   width: 72px;
   height: 72px;
@@ -272,7 +266,6 @@ h1, h2, h3, h4 {
   display: block;
 }
 
-/* Map placeholder image */
 .map-placeholder-img {
   width: 100%;
   height: 100%;
@@ -670,6 +663,7 @@ h1, h2, h3, h4 {
   transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
   overflow: hidden;
   border-radius: 12px;
+  cursor: pointer; /* Added for interactive feel */
 }
 
 .event-card:hover {

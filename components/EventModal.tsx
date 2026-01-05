@@ -1,5 +1,6 @@
- /*  --------------------------------------------------------------------------
- *   TECHITHON | OFFICIAL SOURCE CODE
+/*
+ *  --------------------------------------------------------------------------
+ *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
  *   Designed & Developed by: Vijay Sangani
@@ -17,6 +18,7 @@ interface EventData {
   id: number;
   title: string;
   time: string;
+  location: string;
   speaker: string;
   image?: string;
   description?: string;
@@ -27,10 +29,46 @@ interface EventModalProps {
   onClose: () => void;
   event: EventData | null;
   themeColor: string;
+  date: string;
 }
 
-export const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, event, themeColor }) => {
+export const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, event, themeColor, date }) => {
   if (!isOpen || !event) return null;
+
+  const handleAddToCalendar = () => {
+    // 1. Parse Date: "OCT 12" -> Month, Day
+    const [monthStr, dayStr] = date.split(' ');
+    const monthMap: Record<string, string> = { 
+        'JAN': '01', 'FEB': '02', 'MAR': '03', 'APR': '04', 'MAY': '05', 'JUN': '06', 
+        'JUL': '07', 'AUG': '08', 'SEP': '09', 'OCT': '10', 'NOV': '11', 'DEC': '12' 
+    };
+    const month = monthMap[monthStr.toUpperCase()] || '10';
+    const day = dayStr.padStart(2, '0');
+    const year = '2025';
+
+    // 2. Parse Time: "09:00 AM"
+    const [timeStr, modifier] = event.time.split(' ');
+    let [hours, minutes] = timeStr.split(':');
+    
+    let hoursInt = parseInt(hours);
+    if (modifier === 'PM' && hoursInt < 12) hoursInt += 12;
+    if (modifier === 'AM' && hoursInt === 12) hoursInt = 0;
+    
+    // Create Date objects (Using local time)
+    const startDateObj = new Date(`${year}-${month}-${day}T${hoursInt.toString().padStart(2, '0')}:${minutes}:00`);
+    const endDateObj = new Date(startDateObj.getTime() + 60 * 60 * 1000); // 1 hour duration
+    
+    // Format to YYYYMMDDTHHMMSSZ
+    const toGoogleFormat = (d: Date) => {
+        return d.toISOString().replace(/-|:|\.\d+/g, '');
+    };
+
+    const datesParam = `${toGoogleFormat(startDateObj)}/${toGoogleFormat(endDateObj)}`;
+
+    const googleUrl = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&details=${encodeURIComponent((event.description || '') + '\n\nSpeaker: ' + event.speaker)}&location=${encodeURIComponent(event.location)}&dates=${datesParam}`;
+    
+    window.open(googleUrl, '_blank');
+  };
 
   return ReactDOM.createPortal(
     <div style={{
@@ -126,7 +164,7 @@ export const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, event, 
                     marginBottom: '20px',
                     width: 'fit-content'
                 }}>
-                    {event.time} • MAIN STAGE
+                    {event.time} • {event.location}
                 </div>
 
                 <h2 style={{ 
@@ -173,11 +211,11 @@ export const EventModal: React.FC<EventModalProps> = ({ isOpen, onClose, event, 
                     transition: 'transform 0.2s',
                     alignSelf: 'flex-start'
                 }}
-                onClick={onClose} // Just close for now, or could link to specific register logic
+                onClick={handleAddToCalendar}
                 onMouseEnter={(e) => e.currentTarget.style.transform = 'scale(1.05)'}
                 onMouseLeave={(e) => e.currentTarget.style.transform = 'scale(1)'}
                 >
-                    ADD TO CALENDAR
+                    ADD TO GOOGLE CALENDAR
                 </button>
 
             </div>

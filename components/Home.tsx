@@ -1,0 +1,195 @@
+/*
+ *  --------------------------------------------------------------------------
+ *   TECHFEST 2025 | OFFICIAL SOURCE CODE
+ *  --------------------------------------------------------------------------
+ *
+ *   Designed & Developed by: The Lead Engineer
+ *   
+ *   "The best way to predict the future is to invent it."
+ *
+ *   (c) 2025 All Rights Reserved.
+ *   Verified Signature: 0xDEV_AUTH_TOKEN_ACTIVE
+ *  --------------------------------------------------------------------------
+ */
+
+import React, { useLayoutEffect, useRef, useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+
+import { DaySection } from './DaySection';
+import { RoadmapSection } from './RoadmapSection';
+import { SCHEDULE } from '../data/events';
+import bgVideo from '../assests/Untitled design.mp4';
+
+gsap.registerPlugin(ScrollTrigger);
+
+interface HomeProps {
+    onOpenModal: () => void;
+}
+
+export const Home: React.FC<HomeProps> = ({ onOpenModal }) => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [showVideo, setShowVideo] = useState(false);
+  const location = useLocation();
+
+  // Handle incoming scroll requests from other pages (e.g. from /projects)
+  useEffect(() => {
+    if (location.state && location.state.scrollTo) {
+        const targetId = location.state.scrollTo;
+        // Small timeout to allow DOM to settle
+        setTimeout(() => {
+            const element = document.querySelector(targetId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }, 100);
+    }
+  }, [location]);
+
+  // Handle Video Delay Logic
+  useEffect(() => {
+    const timer = setTimeout(() => {
+        setShowVideo(true);
+        // Start playing the video after 1.5 seconds
+        if (videoRef.current) {
+            videoRef.current.play().catch(err => console.error("Video play failed:", err));
+        }
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useLayoutEffect(() => {
+      const ctx = gsap.context(() => {
+          // 1. Intro Animation
+          gsap.from('.hero-content > *', {
+              y: 30,
+              opacity: 0,
+              stagger: 0.15,
+              duration: 1.2,
+              ease: "power3.out",
+              delay: 0.2
+          });
+
+          // 2. Pin Hero Section (Locking effect)
+          ScrollTrigger.create({
+              trigger: heroRef.current,
+              start: 'top top',
+              end: 'bottom top',
+              pin: true,
+              pinSpacing: false, // Allows the next section (Roadmap) to slide over
+              scrub: true
+          });
+
+      }, heroRef);
+
+      return () => ctx.revert();
+  }, []);
+
+  const scrollToSchedule = () => {
+    const roadmap = document.querySelector('.roadmap-section');
+    if (roadmap) {
+        roadmap.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <>
+      {/* Hero Section */}
+      <section ref={heroRef} className="hero-section">
+        
+        {/* Background Video Wrapper */}
+        <div className="hero-video-wrapper">
+            {/* Video Layer (Z-Index 0) */}
+            <video 
+                ref={videoRef}
+                muted 
+                loop 
+                playsInline 
+                // autoPlay removed to strictly follow "then start playing" logic
+                className="hero-video"
+                style={{ filter: 'brightness(0.6)' }}
+            >
+                <source src={bgVideo} type="video/mp4" />
+            </video>
+            
+            {/* Image Layer (Z-Index 1) - Fades out after 1.5s */}
+            <div style={{
+                position: 'absolute',
+                top: 0, 
+                left: 0, 
+                width: '100%', 
+                height: '100%',
+                zIndex: 1,
+                background: 'url("https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop") center/cover no-repeat',
+                opacity: showVideo ? 0 : 1,
+                transition: 'opacity 1s ease-in-out',
+                pointerEvents: 'none' // Ensures clicks go through to video/controls if needed
+            }}></div>
+
+            {/* Dark Overlay Layer (Z-Index 2) - Keeps text readable over both image and video */}
+            <div className="hero-overlay" style={{ zIndex: 2 }}></div>
+        </div>
+
+        <div className="container hero-content">
+            {/* 1. Date Pill */}
+            <div className="hero-date" style={{ 
+                background: '#00f3ff20', 
+                color: '#00f3ff',
+                border: '1px solid #00f3ff',
+                borderRadius: '50px',
+                padding: '8px 20px',
+                marginBottom: '30px'
+            }}>
+                JANUARY 28TH-30TH, 2026
+            </div>
+
+            {/* 2. Event Name */}
+            <h2 className="hero-subtitle" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', marginBottom: '10px' }}>
+                IEEE TECHITHON 2026
+            </h2>
+
+            {/* 3. Main Headline */}
+            <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', lineHeight: '1.1' }}>
+                FUTURE IS <br />
+                <span className="text-neon-purple">LOADING...</span>
+            </h1>
+
+            {/* 4. Description */}
+            <p className="hero-description" style={{ fontSize: '1.2rem', maxWidth: '650px', marginTop: '20px' }}>
+                Join the world's most immersive tech experience.<br />
+                Three days of AI, Metaverse, and Bio-Hacking conferences in a cyberpunk playground.
+            </p>
+
+            {/* 5. Button */}
+            <button 
+                className="btn-ticket btn-explore" 
+                onClick={scrollToSchedule}
+                style={{ 
+                    marginTop: '30px', 
+                    background: 'transparent', 
+                    border: '1px solid #fff', 
+                    color: '#fff',
+                    clipPath: 'none',
+                    borderRadius: '4px' 
+                }}
+            >
+                EXPLORE ROADMAP
+            </button>
+        </div>
+      </section>
+
+      {/* Roadmap Section */}
+      <RoadmapSection />
+
+      {/* Days Sections */}
+      <div style={{ position: 'relative', zIndex: 3, background: 'var(--bg-dark)' }}>
+        <DaySection id="day1" data={SCHEDULE.day1} onRegister={onOpenModal} />
+        <DaySection id="day2" data={SCHEDULE.day2} onRegister={onOpenModal} />
+        <DaySection id="day3" data={SCHEDULE.day3} onRegister={onOpenModal} />
+      </div>
+    </>
+  );
+};

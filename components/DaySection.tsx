@@ -1,5 +1,6 @@
- /*  --------------------------------------------------------------------------
- *   TECHITHON | OFFICIAL SOURCE CODE
+/*
+ *  --------------------------------------------------------------------------
+ *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
  *   Designed & Developed by: Vijay Sangani
@@ -18,6 +19,7 @@ interface Event {
   id: number;
   title: string;
   time: string;
+  location: string;
   speaker: string;
   image?: string;
   description?: string;
@@ -29,6 +31,7 @@ interface DaySectionProps {
     title: string;
     theme: string;
     color: string;
+    date: string; // Added date field to interface
     events: Event[];
   };
   onRegister?: () => void;
@@ -297,7 +300,7 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
                     <div className="event-meta" style={{ color: data.color }}>
                          <span style={{ fontWeight: 'bold' }}>{event.time}</span>
                          <span style={{ width: '6px', height: '6px', background: data.color, borderRadius: '50%' }}></span>
-                         <span>MAIN STAGE</span>
+                         <span style={{ textTransform: 'uppercase' }}>{event.location}</span>
                     </div>
                     
                     <h4 className="event-title">{event.title}</h4>
@@ -330,6 +333,7 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
         onClose={() => setSelectedEvent(null)} 
         event={selectedEvent} 
         themeColor={data.color}
+        date={data.date}
       />
     </section>
   );

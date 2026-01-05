@@ -1,5 +1,6 @@
- /*  --------------------------------------------------------------------------
- *   TECHITHON | OFFICIAL SOURCE CODE
+/*
+ *  --------------------------------------------------------------------------
+ *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
  *   Designed & Developed by: Vijay Sangani
@@ -11,21 +12,23 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import logoSrc from '../assests/logo.png';
-import ieeeLogoSrc from '../assests/IEEE logo.png';
+import ieeeLogoSrc from '../assests/IEEE logo.png'
 
+// Updated Menu Items with Paths
 const MENU_ITEMS = [
-  { label: 'Home', href: '#' },
+  { label: 'Home', href: '/' },
   { 
     label: 'About', 
     href: '#about', 
     children: [
-      // { label: 'Our Team', href: '#team' },
-      // { label: 'Our Mission', href: '#mission' },
-      // { label: 'History', href: '#history' },
-      // { label: 'Events', href: '#events' },
-      // { label: 'Partners', href: '#partners' },
-      { label: 'Know More', href: 'https://atharvauniversity.org/' },
+      //{ label: 'Our Team', href: '#team' },
+      //{ label: 'Our Mission', href: '#mission' },
+      //{ label: 'History', href: '#history' },
+      //{ label: 'Events', href: '#events' },
+      //{ label: 'Partners', href: '#partners' },
+      { label: 'Know More', href: '#more' },
     ]
   },
   { 
@@ -35,6 +38,7 @@ const MENU_ITEMS = [
       { label: 'Day 1', href: '#day1' },
       { label: 'Day 2', href: '#day2' },
       { label: 'Day 3', href: '#day3' },
+      { label: 'Projects', href: '/projects' }, // Changed to route
     ]
   },
   { label: 'Contact Us', href: 'tel:+912240294949' }
@@ -47,6 +51,9 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeMobileDropdown, setActiveMobileDropdown] = useState<string | null>(null);
+  
+  const navigate = useNavigate();
+  const location = useLocation();
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -66,21 +73,48 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
   };
 
   const toggleMobileDropdown = (label: string) => {
-    // If clicking the same label, close it, otherwise open it
     setActiveMobileDropdown(prev => prev === label ? null : label);
   };
 
-  const scrollTo = (id: string) => {
-    // Basic ID check
-    if (id.startsWith('#')) {
-      const el = document.querySelector(id);
-      if (el) {
-        el.scrollIntoView({ behavior: 'smooth' });
-        setIsMobileOpen(false); // Close menu on click
-      }
-    } else {
-        // External link logic if needed
+  const handleNavigation = (href: string) => {
+    setIsMobileOpen(false);
+
+    // 1. External Links
+    if (href.startsWith('http')) {
+        window.open(href, '_blank');
+        return;
+    }
+
+    // 2. Route Navigation (e.g., /projects, /)
+    if (href.startsWith('/')) {
+        navigate(href);
+        window.scrollTo(0, 0);
+        return;
+    }
+
+    // 3. Anchor Links (#section)
+    if (href.startsWith('#')) {
+        // If we are NOT on the home page, go to home first
+        if (location.pathname !== '/') {
+            navigate('/', { state: { scrollTo: href } });
+        } else {
+            // We are already on home, just scroll
+            const element = document.querySelector(href);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    }
+    const scrollTo = (id : string) => {
+      if (id.startsWith('#')) {
+        const el =document.querySelector(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          setIsMobileOpen(false);
+        }
+      } else {
         window.location.href = id;
+      }
     }
   };
 
@@ -92,40 +126,30 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
         left: 0,
         width: '100%',
         zIndex: 1000,
-        background: 'rgba(5, 5, 16, 0.95)', // Slightly more opaque for readability
+        background: 'rgba(5, 5, 16, 0.95)',
         backdropFilter: 'blur(10px)',
         borderBottom: '1px solid var(--border)'
       }}>
         <div className="container nav-container">
           
           {/* Left Side: Logo Section */}
-          <div className="nav-left" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-            {/* Clickable University Logo - Rectangle */}
-            <a href="https://atharvauniversity.org" target="_blank" rel="noreferrer" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
-                <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <img 
-                    src={logoSrc}
-                    alt="Atharva University Logo" 
-                    className="nav-logo"
-                  />
-                  <img
-                    src={ieeeLogoSrc}
-                    alt="IEEE Logo"
-                    className="nav-logo-alt"
-                    style={{ marginLeft: 12 }}
-                  />
-                </div>
+          <div className='nav-left' style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
+            <a href='https://atharvauniversity.org' target='_blank' rel='noreferrer' style={{ display: 'flex', alignItems: 'center', textDecoration: 'none'}}>
+              <div style={{ display: 'flex', alignItems: 'center'}}>
+                <img src={logoSrc} alt="TechIthon Logo" className='nav-logo'/>
+                <img src={ieeeLogoSrc} alt="IEEE Logo" className='nav-logo-alt' style={{ marginLeft: 12 }}/>
+              </div>
             </a>
           </div>
 
-          {/* Right Side: Desktop Menu & Buttons (Hidden on Mobile) */}
+          {/* Right Side: Desktop Menu & Buttons */}
           <div className="nav-right-desktop">
             <div className="nav-links">
               {MENU_ITEMS.map((item) => (
                 <div key={item.label} className="nav-item">
                   <span 
                       className="nav-link-text" 
-                      onClick={() => !item.children && scrollTo(item.href)}
+                      onClick={() => !item.children && handleNavigation(item.href)}
                   >
                     {item.label} {item.children && '▾'}
                   </span>
@@ -136,8 +160,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
                       {item.children.map((sub) => (
                         <a 
                           key={sub.label} 
-                          href={sub.href} // Fallback
-                          onClick={(e) => { e.preventDefault(); scrollTo(sub.href); }}
+                          href={sub.href}
+                          onClick={(e) => { e.preventDefault(); handleNavigation(sub.href); }}
                           className="dropdown-item"
                         >
                           {sub.label}
@@ -149,13 +173,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
               ))}
             </div>
 
-            {/* Desktop CTA Button */}
             <button className="btn-ticket" onClick={onGetTickets}>
               GET TICKETS
             </button>
           </div>
 
-          {/* Mobile Hamburger (Only visible on Mobile) */}
+          {/* Mobile Hamburger */}
           <button className="mobile-toggle" onClick={toggleMobileMenu} aria-label="Toggle Menu">
              {isMobileOpen ? '✕' : '☰'}
           </button>
@@ -170,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
             <div key={item.label} className="mobile-menu-item">
                 <div 
                     className="mobile-label-row"
-                    onClick={() => item.children ? toggleMobileDropdown(item.label) : scrollTo(item.href)}
+                    onClick={() => item.children ? toggleMobileDropdown(item.label) : handleNavigation(item.href)}
                 >
                     {item.label}
                     {item.children && (
@@ -181,14 +204,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
                     )}
                 </div>
 
-                {/* Mobile Dropdown (Accordion) */}
+                {/* Mobile Dropdown */}
                 {item.children && (
                     <div className={`mobile-dropdown ${activeMobileDropdown === item.label ? 'open' : ''}`}>
                         {item.children.map(sub => (
                             <div 
                                 key={sub.label}
                                 style={{ fontSize: '1rem', color: '#aaa', cursor: 'pointer', padding: '5px 0' }}
-                                onClick={() => scrollTo(sub.href)}
+                                onClick={() => handleNavigation(sub.href)}
                             >
                                 {sub.label}
                             </div>
@@ -198,7 +221,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
             </div>
         ))}
         
-        {/* Mobile Ticket Button (Bottom) */}
         <button className="btn-ticket mobile-btn" onClick={() => { onGetTickets?.(); setIsMobileOpen(false); }}>
             GET TICKETS
         </button>

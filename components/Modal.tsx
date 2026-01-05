@@ -1,5 +1,6 @@
- /*  --------------------------------------------------------------------------
- *   TECHITHON | OFFICIAL SOURCE CODE
+/*
+ *  --------------------------------------------------------------------------
+ *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
  *   Designed & Developed by: Vijay Sangani
@@ -99,55 +100,86 @@ export const Modal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             transition: 'color 0.3s'
         }}>SCAN TO REGISTER</h3>
         
-        {/* Tab Buttons (single horizontal row; scrollable on small screens) */}
+        {/* Tab Buttons */}
         <div style={{ display: 'flex', flexWrap: 'nowrap', justifyContent: 'space-between', gap: '12px', marginBottom: '30px', overflowX: 'hidden', paddingBottom: '6px', width: '100%' }}>
             {tabs.map((tab, index) => (
                 <button 
                     key={tab.label}
                     onClick={() => setActiveTab(index)}
                     style={{
-                  background: activeTab === index ? tab.color : 'transparent',
-                  color: activeTab === index ? '#000' : '#fff',
-                  border: `1px solid ${tab.color}`,
-                    padding: '8px 10px',
-                    borderRadius: '6px',
-                  cursor: 'pointer',
-                  fontFamily: 'Orbitron',
-                  fontSize: '0.9rem',
-                  fontWeight: '700',
-                  transition: 'all 0.25s',
-                    whiteSpace: 'normal',
-                    textAlign: 'center',
-                    lineHeight: 1.1,
-                    flex: '1 1 0',
-                    minWidth: 0
-                      }}
+                        background: activeTab === index ? tab.color : 'transparent',
+                        color: activeTab === index ? '#000' : '#fff',
+                        border: `1px solid ${tab.color}`,
+                        padding: '8px 10px',
+                        borderRadius: '6px',
+                        cursor: 'pointer',
+                        fontFamily: 'Orbitron',
+                        fontSize: '0.9rem',
+                        fontWeight: '700',
+                        transition: 'all 0.25s',
+                        whiteSpace: 'normal',
+                        textAlign: 'center',
+                        lineHeight: 1.1,
+                        flex: '1 1 0',
+                        minWidth: '0px'
+                    }}
                 >
-                      {tab.label.split('\n').map((line, i) => (
+                    {tab.label.split('\n').map((line, i) => (
                         <span key={i} style={{ display: 'block' }}>{line}</span>
-                      ))}
+                    ))}
                 </button>
             ))}
         </div>
 
         <div style={{ 
-          background: '#fff', 
-          padding: '18px', 
-          borderRadius: '12px',
-          display: 'inline-block',
-          marginBottom: '30px',
-          boxShadow: '0 0 24px rgba(255,255,255,0.12)'
+            background: '#fff', 
+            padding: '18px', 
+            borderRadius: '12px',
+            display: 'inline-block',
+            marginBottom: '30px',
+            boxShadow: '0 0 24px rgba(255,255,255,0.12)'
         }}>
-          <img 
-            src={`https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent(currentTab.url)}`} 
-            alt="Registration QR Code" 
-            style={{ width: '240px', height: '240px', display: 'block' }}
-          />
+            <img 
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=${encodeURIComponent(currentTab.url)}`} 
+                alt="Registration QR Code" 
+                style={{ width: '240px', height: '240px', display: 'block' }}
+            />
         </div>
 
-        <p style={{ color: '#ccc', fontSize: '0.9rem', lineHeight: '1.5', transition: 'opacity 0.3s', minHeight: '3em' }}>
+        <p style={{ color: '#ccc', fontSize: '0.9rem', lineHeight: '1.5', transition: 'opacity 0.3s', minHeight: '3em', marginBottom: '20px' }}>
             {currentTab.description}
         </p>
+
+        {/* Direct Link Button */}
+        <a 
+            href={currentTab.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+                display: 'inline-block',
+                padding: '12px 25px',
+                background: currentTab.color,
+                color: '#000',
+                textDecoration: 'none',
+                fontFamily: 'Orbitron',
+                fontWeight: 'bold',
+                fontSize: '0.9rem',
+                borderRadius: '4px',
+                transition: 'transform 0.2s, box-shadow 0.2s',
+                cursor: 'pointer',
+                clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)'
+            }}
+            onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.boxShadow = `0 5px 15px ${currentTab.color}40`;
+            }}
+            onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
+            }}
+        >
+            CLICK TO REGISTER
+        </a>
 
         <style>{`
             @keyframes modalPop {
