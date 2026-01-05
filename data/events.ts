@@ -112,23 +112,23 @@ export const SCHEDULE = {
         id: 2, 
         title: "Hands On Tech Projects", 
         time: "12:00 PM", 
-        speaker: "Cyberdyne Systems",
+        speaker: "Industry Experts",
         image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&auto=format&fit=crop&q=60",
-        description: "Engage in hands-on tech projects with Cyberdyne Systems, focusing on innovative solutions in bio-hacking and human augmentation." // Change as needed
+        description: "Engage in hands-on tech projects with Industry Experts, focusing on innovative solutions in real world issues." // Change as needed
       },
       { 
         id: 3, 
         title: "Valedictory", 
         time: "02:30 PM", 
-        speaker: "Total Recall Inc.",
+        speaker: "Shri Sunil Rane Sir",
         image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=500&auto=format&fit=crop&q=60",
-        description: "Conclude the Techithon 2026 with the valedictory session led by Total Recall Inc., reflecting on the event's highlights and future directions in technology." // Change as needed
+        description: "Conclude the Techithon 2026 with the valedictory session led by Shri Sunil Rane Sir, reflecting on the event's highlights and future directions in technology." // Change as needed
       },
       { 
         id: 4, 
         title: "Prize DistributionClosing Ceremony", 
         time: "06:00 PM",
-        speaker: "The Organizers",
+        speaker: "The Organizing committee",
         image: "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=500&auto=format&fit=crop&q=60",
         description: "Celebrate the achievements of participants during the prize distribution and closing ceremony, marking the successful conclusion of Techithon 2026." // Change as needed
       },

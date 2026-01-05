@@ -141,8 +141,8 @@ export const Footer: React.FC = () => {
       </div>
 
       <div style={{ textAlign: 'center', marginTop: '80px', color: '#666', fontSize: '0.9rem' }}>
-                &copy; {new Date().getFullYear()} Made by <a href="https://github.com/Vijay-Sangani1907" style={{ color: '#00f3ff', textDecoration: 'none' }}>YJS</a>, <a href="" style={{ color: '#00f3ff', textDecoration: 'none' }}>Mayank Bhuvad</a>, <a href="https://github.com/shloknair1005" style={{ color: '#00f3ff', textDecoration: 'none' }}>Shlok Nair</a>, and <a href="#" style={{ color: '#00f3ff', textDecoration: 'none' }}>Yug Sawant</a> <br></br>
-                TechIthon 2025
+                &copy; {new Date().getFullYear()} Made by <a href="https://atharvauniversity.org" style={{ color: '#00f3ff', textDecoration: 'none' }}>Atharva_University</a><br></br>
+                TechIthon 2026
       </div>
     </footer>
   );

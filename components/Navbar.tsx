@@ -20,11 +20,11 @@ const MENU_ITEMS = [
     label: 'About', 
     href: '#about', 
     children: [
-      { label: 'Our Team', href: '#team' },
-      { label: 'Our Mission', href: '#mission' },
-      { label: 'History', href: '#history' },
-      { label: 'Events', href: '#events' },
-      { label: 'Partners', href: '#partners' },
+      // { label: 'Our Team', href: '#team' },
+      // { label: 'Our Mission', href: '#mission' },
+      // { label: 'History', href: '#history' },
+      // { label: 'Events', href: '#events' },
+      // { label: 'Partners', href: '#partners' },
       { label: 'Know More', href: 'https://atharvauniversity.org/' },
     ]
   },
@@ -37,7 +37,7 @@ const MENU_ITEMS = [
       { label: 'Day 3', href: '#day3' },
     ]
   },
-  { label: 'Contact Us', href: '#contact' }
+  { label: 'Contact Us', href: 'tel:+912240294949' }
 ];
 
 interface NavbarProps {
