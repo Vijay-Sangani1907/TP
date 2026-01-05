@@ -29,7 +29,7 @@ export const SCHEDULE = {
       { 
         id: 2, 
         title: "Speech", 
-        time: "10:15 AM"3, 
+        time: "10:15 AM", 
         speaker: "Shri Sunil Rane Sir & Guest of Honour",
         image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=500&auto=format&fit=crop&q=60",
         description: "Hear from Shri Sunil Rane Sir and our Guest of Honour as they share their insights on the future of technology, innovation, and the importance of events like Techithon in shaping the next generation of tech leaders." // Change as needed
