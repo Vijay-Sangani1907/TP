@@ -29,7 +29,7 @@ export const SCHEDULE = {
       { 
         id: 2, 
         title: "Speech", 
-        time: "10:15 AM", 
+        time: "10:15 AM"3, 
         speaker: "Shri Sunil Rane Sir & Guest of Honour",
         image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=500&auto=format&fit=crop&q=60",
         description: "Hear from Shri Sunil Rane Sir and our Guest of Honour as they share their insights on the future of technology, innovation, and the importance of events like Techithon in shaping the next generation of tech leaders." // Change as needed
@@ -37,7 +37,7 @@ export const SCHEDULE = {
       { 
         id: 3, 
         title: "Launch of Project Exhibition & Guided Exhibition by Industry People", 
-        time: "11:15 PM", 
+        time: "11:15 PM",
         speaker: "Industry Experts",
         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500&auto=format&fit=crop&q=60",
         description: "Experience the launch of our Project Exhibition, showcasing innovative projects from participants. Industry experts will guide you through the exhibits, providing valuable feedback and insights into the latest technological advancements." // Change as needed
@@ -79,17 +79,17 @@ export const SCHEDULE = {
         id: 3, 
         title: "Hands on CyberSecurity Workshop", 
         time: "01:15 PM", 
-        speaker: "Satoshi N.",
+        speaker: "Expert",
         image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=500&auto=format&fit=crop&q=60",
-        description: "Participate in an interactive cybersecurity workshop led by Satoshi N. Learn about the latest security threats and how to protect digital assets effectively." // Change as needed
+        description: "Participate in an interactive cybersecurity workshop led by Expert. Learn about the latest security threats and how to protect digital assets effectively." // Change as needed
       },
       { 
         id: 4, 
         title: "Exhibition Walk", 
         time: "03:15 PM", 
-        speaker: "MediTech AI",
-        image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&auto=format&fit=crop&q=60",
-        description: "Take a guided walk through the exhibition with experts from MediTech AI, exploring innovative projects and cutting-edge technologies on display." // Change as needed
+        speaker: "Organizing Committee.",
+        image: "",
+        description: "Take a guided walk through the exhibition with experts from the Organizing Committee, exploring innovative projects and cutting-edge technologies on display." // Change as needed
       },
     ]
   },
@@ -97,16 +97,16 @@ export const SCHEDULE = {
     id: "day3",
     title: "Day 03: Human upgrade",
     date: "30th Jan",
-    theme: "Bio-Hacking",
+    theme: "Industry Walk",
     color: "#faff00",
     events: [
       { 
         id: 1, 
-        title: "Industry Walk ", 
+        title: "Industry Walk", 
         time: "09:30 AM", 
-        speaker: "Gattaca Inst.",
+        speaker: "Organizing Committee.",
         image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=500&auto=format&fit=crop&q=60",
-        description: "Join us for an industry walk led by Gattaca Inst., where you'll explore the latest advancements in biotechnology and their real-world applications." // Change as needed
+        description: "Join us for an industry walk led by the Organizing Committee, where you'll explore the latest advancements in biotechnology and their real-world applications." // Change as needed
       },
       { 
         id: 2, 
