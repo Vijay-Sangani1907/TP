@@ -134,12 +134,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onGetTickets }) => {
           
           {/* Left Side: Logo Section */}
           <div className='nav-left' style={{display: 'flex', alignItems: 'center', gap: '15px'}}>
-            <a href='https://atharvauniversity.org' target='_blank' rel='noreferrer' style={{ display: 'flex', alignItems: 'center', textDecoration: 'none'}}>
               <div style={{ display: 'flex', alignItems: 'center'}}>
+                <a href='https://atharvauniversity.org' target='_blank' rel='noreferrer' style={{ display: 'flex', alignItems: 'center', textDecoration: 'none'}}>
                 <img src={logoSrc} alt="TechIthon Logo" className='nav-logo'/>
+                </a>
+                <a href='/'>
                 <img src={ieeeLogoSrc} alt="IEEE Logo" className='nav-logo-alt' style={{ marginLeft: 12 }}/>
+                </a>
               </div>
-            </a>
           </div>
 
           {/* Right Side: Desktop Menu & Buttons */}

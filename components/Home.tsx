@@ -1,14 +1,13 @@
 /*
  *  --------------------------------------------------------------------------
- *   TECHFEST 2025 | OFFICIAL SOURCE CODE
+ *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
- *   Designed & Developed by: The Lead Engineer
+ *   Designed & Developed by: Vijay Sangani
  *   
- *   "The best way to predict the future is to invent it."
+ *   Contributors: Mayank Bhuvad, Shlok Nair, Yug Sawant
  *
- *   (c) 2025 All Rights Reserved.
- *   Verified Signature: 0xDEV_AUTH_TOKEN_ACTIVE
+ *   (c) 2026 All Rights Reserved.
  *  --------------------------------------------------------------------------
  */
 
@@ -19,6 +18,7 @@ import ScrollTrigger from 'gsap/ScrollTrigger';
 
 import { DaySection } from './DaySection';
 import { RoadmapSection } from './RoadmapSection';
+import { ProjectGateway } from './ProjectGateaway';
 import { SCHEDULE } from '../data/events';
 import bgVideo from '../assests/Untitled design.mp4';
 
@@ -50,15 +50,30 @@ export const Home: React.FC<HomeProps> = ({ onOpenModal }) => {
 
   // Handle Video Delay Logic
   useEffect(() => {
+    let isMounted = true;
     const timer = setTimeout(() => {
+        if (!isMounted) return;
+
         setShowVideo(true);
         // Start playing the video after 1.5 seconds
         if (videoRef.current) {
-            videoRef.current.play().catch(err => console.error("Video play failed:", err));
+            const playPromise = videoRef.current.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(err => {
+                    // Ignore AbortError or errors related to element removal which can happen in strict mode or rapid navigation
+                    if (err.name === 'AbortError' || err.message.includes('removed')) {
+                        return;
+                    }
+                    console.error("Video play failed:", err);
+                });
+            }
         }
     }, 1500);
 
-    return () => clearTimeout(timer);
+    return () => {
+        isMounted = false;
+        clearTimeout(timer);
+    };
   }, []);
 
   useLayoutEffect(() => {
@@ -135,30 +150,23 @@ export const Home: React.FC<HomeProps> = ({ onOpenModal }) => {
 
         <div className="container hero-content">
             {/* 1. Date Pill */}
-            <div className="hero-date" style={{ 
-                background: '#00f3ff20', 
-                color: '#00f3ff',
-                border: '1px solid #00f3ff',
-                borderRadius: '50px',
-                padding: '8px 20px',
-                marginBottom: '30px'
-            }}>
+            <div className="hero-date">
                 JANUARY 28TH-30TH, 2026
             </div>
 
             {/* 2. Event Name */}
-            <h2 className="hero-subtitle" style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', marginBottom: '10px' }}>
+            <h2 className="hero-subtitle">
                 IEEE TECHITHON 2026
             </h2>
 
             {/* 3. Main Headline */}
-            <h1 className="hero-title" style={{ fontSize: 'clamp(2.5rem, 6vw, 5rem)', lineHeight: '1.1' }}>
+            <h1 className="hero-title">
                 FUTURE IS <br />
                 <span className="text-neon-purple">LOADING...</span>
             </h1>
 
             {/* 4. Description */}
-            <p className="hero-description" style={{ fontSize: '1.2rem', maxWidth: '650px', marginTop: '20px' }}>
+            <p className="hero-description">
                 Join the world's most immersive tech experience.<br />
                 Three days of AI, Metaverse, and Bio-Hacking conferences in a cyberpunk playground.
             </p>
@@ -166,16 +174,7 @@ export const Home: React.FC<HomeProps> = ({ onOpenModal }) => {
             {/* 5. Button */}
             <button 
                 className="btn-ticket btn-explore" 
-                onClick={scrollToSchedule}
-                style={{ 
-                    marginTop: '30px', 
-                    background: 'transparent', 
-                    border: '1px solid #fff', 
-                    color: '#fff',
-                    clipPath: 'none',
-                    borderRadius: '4px' 
-                }}
-            >
+                onClick={scrollToSchedule}>
                 EXPLORE ROADMAP
             </button>
         </div>
@@ -190,6 +189,9 @@ export const Home: React.FC<HomeProps> = ({ onOpenModal }) => {
         <DaySection id="day2" data={SCHEDULE.day2} onRegister={onOpenModal} />
         <DaySection id="day3" data={SCHEDULE.day3} onRegister={onOpenModal} />
       </div>
+
+      {/* Project Gateway Section */}
+      <ProjectGateway />
     </>
   );
 };
