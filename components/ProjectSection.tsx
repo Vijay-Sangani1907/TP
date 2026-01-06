@@ -14,10 +14,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { PROJECTS } from '../data/projects';
+import { ProjectModal } from './ProjectModal';
 
 export const ProjectsSection: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
+  const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const categories = ['All', 'AI', 'Blockchain', 'AR/VR', 'IoT'];
@@ -120,6 +122,7 @@ export const ProjectsSection: React.FC = () => {
                 <div 
                     key={project.id}
                     className="project-card"
+                    onClick={() => setSelectedProject(project)}
                     style={{
                         background: 'rgba(255,255,255,0.03)',
                         border: '1px solid rgba(255,255,255,0.1)',
@@ -203,6 +206,12 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
       </div>
+
+      <ProjectModal 
+        isOpen={!!selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+        project={selectedProject} 
+      />
     </section>
   );
 };

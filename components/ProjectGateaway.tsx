@@ -1,14 +1,13 @@
 /*
  *  --------------------------------------------------------------------------
- *   TECHFEST 2025 | OFFICIAL SOURCE CODE
+ *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
- *   Designed & Developed by: The Lead Engineer
+ *   Designed & Developed by: Vijay Sangani
  *   
- *   "The best way to predict the future is to invent it."
+ *   Contributors: Mayank Bhuvad, Shlok Nair, Yug Sawant
  *
- *   (c) 2025 All Rights Reserved.
- *   Verified Signature: 0xDEV_AUTH_TOKEN_ACTIVE
+ *   (c) 2026 All Rights Reserved.
  *  --------------------------------------------------------------------------
  */
 
