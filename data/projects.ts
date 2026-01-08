@@ -71,5 +71,95 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80",
     description: "Home energy management system optimizing power usage based on real-time grid pricing and renewable energy availability. Reduces average household energy bills by 25%.",
     tech: ["Node.js", "MQTT", "React Native", "InfluxDB"]
+  },
+  {
+    id: 7,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+  },
+  {
+    id: 8,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+  },
+  {
+    id: 9,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+  },
+  {
+    id: 10,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+  },
+  {
+    id: 11,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+  },
+  {
+    id: 12,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+  },
+  {
+    id: 13,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+  },
+  {
+    id: 14,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+  },
+  {
+    id: 15,
+    title: "EcoMind AI",
+    team: "GreenBytes",
+    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
+    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
   }
 ];

@@ -178,6 +178,49 @@ export const Home: React.FC<HomeProps> = ({ onOpenModal }) => {
                 EXPLORE ROADMAP
             </button>
         </div>
+        {/* MIRA-AI Logo */}
+        <div style={{
+            position: 'absolute',
+            bottom: '40px',
+            right: '40px',
+            zIndex: 5,
+            pointerEvents: 'none',
+            mixBlendMode: 'plus-lighter'
+        }}>
+             <style>{`
+                @keyframes miraGlitchStrong {
+                    0% { transform: translate(0,0) skew(0deg); opacity: 0.8; filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.3)); }
+                    
+                    /* Phase 1: Sudden Shift Left */
+                    75% { transform: translate(0,0) skew(0deg); opacity: 0.8; }
+                    76% { transform: translate(-8px, 2px) skew(25deg); opacity: 1; filter: drop-shadow(-8px 0 15px rgba(0, 243, 255, 0.9)); }
+                    
+                    /* Phase 2: Shift Right & Opposite Skew */
+                    78% { transform: translate(8px, -4px) skew(-25deg); opacity: 0.6; filter: drop-shadow(8px 0 15px rgba(188, 19, 254, 0.9)); }
+                    
+                    /* Phase 3: Vertical Jump & Scale */
+                    80% { transform: translate(0, 6px) scale(1.15) skew(5deg); opacity: 0.9; filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8)); }
+                    
+                    /* Phase 4: Compression */
+                    82% { transform: scaleY(0.8) scaleX(1.1); opacity: 0.7; }
+                    
+                    /* Return to Normal with aftershocks */
+                    85% { transform: translate(0,0) skew(0deg); opacity: 0.8; filter: drop-shadow(0 0 5px rgba(0, 243, 255, 0.3)); }
+                    92% { transform: translate(2px, 0); }
+                    94% { transform: translate(-2px, 0); }
+                    100% { transform: translate(0,0); }
+                }
+            `}</style>
+            <img 
+                src="https://placehold.co/300x100/transparent/FFFFFF?text=MIRA-AI&font=orbitron" 
+                alt="MIRA AI" 
+                style={{ 
+                    height: '75px', 
+                    width: 'auto', 
+                    animation: 'miraGlitchStrong 3s infinite linear'
+                }}
+            />
+        </div>
       </section>
 
       {/* Roadmap Section */}
