@@ -17,21 +17,25 @@ import { PROJECTS } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
 
 export const ProjectsSection: React.FC = () => {
+  const [activeDegree, setActiveDegree] = useState('B. Tech');
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const degrees = ['B. Tech', 'B.E', 'B.Sc'];
   const categories = ['All', 'AI', 'Blockchain', 'AR/VR', 'IoT'];
 
   useEffect(() => {
-    // Filter logic
-    if (activeCategory === 'All') {
-      setFilteredProjects(PROJECTS);
-    } else {
-      setFilteredProjects(PROJECTS.filter(p => p.category === activeCategory));
+    // 2-Level Filter Logic
+    let filtered = PROJECTS.filter(p => p.degree === activeDegree);
+    
+    if (activeCategory !== 'All') {
+      filtered = filtered.filter(p => p.category === activeCategory);
     }
-  }, [activeCategory]);
+    
+    setFilteredProjects(filtered);
+  }, [activeDegree, activeCategory]);
 
   useEffect(() => {
     // Animate grid items when list changes
@@ -48,7 +52,8 @@ export const ProjectsSection: React.FC = () => {
         padding: '100px 0', 
         background: '#050510', 
         borderTop: '1px solid rgba(255,255,255,0.1)',
-        position: 'relative'
+        position: 'relative',
+        minHeight: '100vh'
     }}>
       
       {/* Background Decor */}
@@ -65,7 +70,7 @@ export const ProjectsSection: React.FC = () => {
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '50px' }}>
             <h2 style={{ 
                 fontSize: 'clamp(2rem, 5vw, 3.5rem)', 
                 color: '#fff', 
@@ -75,15 +80,46 @@ export const ProjectsSection: React.FC = () => {
                 PROJECT EXPO
             </h2>
             <p style={{ color: '#aaa', fontSize: '1.1rem', maxWidth: '600px', margin: '0 auto' }}>
-                Witness the future built by the brightest minds. From AI algorithms to decentralized apps, explore the innovation showcase.
+                Witness the future built by the brightest minds. Explore innovations across various disciplines and technologies.
             </p>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Level 1 Filter: Degrees */}
         <div style={{ 
             display: 'flex', 
             justifyContent: 'center', 
-            gap: '15px', 
+            gap: '20px', 
+            marginBottom: '30px',
+            flexWrap: 'wrap'
+        }}>
+            {degrees.map(deg => (
+                <button
+                    key={deg}
+                    onClick={() => { setActiveDegree(deg); setActiveCategory('All'); }} // Reset category when degree changes
+                    style={{
+                        padding: '12px 30px',
+                        background: activeDegree === deg ? '#fff' : 'rgba(255,255,255,0.05)',
+                        color: activeDegree === deg ? '#000' : '#fff',
+                        border: activeDegree === deg ? '1px solid #fff' : '1px solid rgba(255,255,255,0.2)',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                        fontFamily: 'Orbitron',
+                        fontSize: '1rem',
+                        fontWeight: 700,
+                        transition: 'all 0.3s',
+                        clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)'
+                    }}
+                >
+                    {deg}
+                </button>
+            ))}
+        </div>
+
+        {/* Level 2 Filter: Categories */}
+        <div style={{ 
+            display: 'flex', 
+            justifyContent: 'center', 
+            gap: '10px', 
             marginBottom: '50px',
             flexWrap: 'wrap'
         }}>
@@ -92,16 +128,17 @@ export const ProjectsSection: React.FC = () => {
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
                     style={{
-                        padding: '10px 25px',
+                        padding: '8px 20px',
                         background: activeCategory === cat ? 'var(--neon-cyan)' : 'transparent',
-                        color: activeCategory === cat ? '#000' : '#fff',
-                        border: '1px solid var(--neon-cyan)',
-                        borderRadius: '30px',
+                        color: activeCategory === cat ? '#000' : '#aaa',
+                        border: activeCategory === cat ? '1px solid var(--neon-cyan)' : '1px solid rgba(255,255,255,0.1)',
+                        borderRadius: '20px',
                         cursor: 'pointer',
-                        fontFamily: 'Orbitron',
-                        fontSize: '0.9rem',
+                        fontFamily: 'Inter',
+                        fontSize: '0.85rem',
                         fontWeight: 600,
-                        transition: 'all 0.3s'
+                        transition: 'all 0.3s',
+                        textTransform: 'uppercase'
                     }}
                 >
                     {cat}
@@ -110,100 +147,125 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div 
-            ref={containerRef}
-            style={{ 
-                display: 'grid', 
-                gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
-                gap: '30px' 
-            }}
-        >
-            {filteredProjects.map(project => (
-                <div 
-                    key={project.id}
-                    className="project-card"
-                    onClick={() => setSelectedProject(project)}
-                    style={{
-                        background: 'rgba(255,255,255,0.03)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '16px',
-                        overflow: 'hidden',
-                        transition: 'transform 0.3s, border-color 0.3s, box-shadow 0.3s',
-                        cursor: 'pointer',
-                        display: 'flex',
-                        flexDirection: 'column'
-                    }}
-                    onMouseEnter={(e) => {
-                        e.currentTarget.style.transform = 'translateY(-10px)';
-                        e.currentTarget.style.borderColor = 'var(--neon-cyan)';
-                        e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 243, 255, 0.15)';
-                    }}
-                    onMouseLeave={(e) => {
-                        e.currentTarget.style.transform = 'translateY(0)';
-                        e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
-                        e.currentTarget.style.boxShadow = 'none';
-                    }}
-                >
-                    {/* Image Area */}
-                    <div style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>
-                        <img 
-                            src={project.image} 
-                            alt={project.title} 
-                            style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
-                        />
-                        <div style={{
-                            position: 'absolute',
-                            top: '15px',
-                            right: '15px',
-                            background: 'rgba(0,0,0,0.7)',
-                            color: '#fff',
-                            padding: '5px 10px',
-                            borderRadius: '4px',
-                            fontSize: '0.75rem',
-                            fontWeight: 'bold',
-                            border: '1px solid rgba(255,255,255,0.3)'
-                        }}>
-                            {project.category}
-                        </div>
-                    </div>
-
-                    {/* Content Area */}
-                    <div style={{ padding: '25px', flex: 1, display: 'flex', flexDirection: 'column' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
-                            <h3 style={{ fontSize: '1.4rem', margin: 0, color: '#fff' }}>{project.title}</h3>
-                        </div>
-                        
-                        <p style={{ 
-                            fontSize: '0.9rem', 
-                            color: 'var(--neon-cyan)', 
-                            marginBottom: '15px', 
-                            fontWeight: 600 
-                        }}>
-                            by {project.team}
-                        </p>
-
-                        <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px', flex: 1 }}>
-                            {project.description}
-                        </p>
-
-                        {/* Tech Stack Tags */}
-                        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
-                            {project.tech.map((t, i) => (
-                                <span key={i} style={{ 
-                                    background: 'rgba(255,255,255,0.1)', 
-                                    padding: '4px 10px', 
-                                    borderRadius: '4px', 
-                                    fontSize: '0.8rem',
-                                    color: '#aaa' 
+        {filteredProjects.length > 0 ? (
+            <div 
+                ref={containerRef}
+                style={{ 
+                    display: 'grid', 
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+                    gap: '30px' 
+                }}
+            >
+                {filteredProjects.map(project => (
+                    <div 
+                        key={project.id}
+                        className="project-card"
+                        onClick={() => setSelectedProject(project)}
+                        style={{
+                            background: 'rgba(255,255,255,0.03)',
+                            border: '1px solid rgba(255,255,255,0.1)',
+                            borderRadius: '16px',
+                            overflow: 'hidden',
+                            transition: 'transform 0.3s, border-color 0.3s, box-shadow 0.3s',
+                            cursor: 'pointer',
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }}
+                        onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-10px)';
+                            e.currentTarget.style.borderColor = 'var(--neon-cyan)';
+                            e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 243, 255, 0.15)';
+                        }}
+                        onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';
+                            e.currentTarget.style.boxShadow = 'none';
+                        }}
+                    >
+                        {/* Image Area */}
+                        <div style={{ height: '200px', overflow: 'hidden', position: 'relative' }}>
+                            <img 
+                                src={project.image} 
+                                alt={project.title} 
+                                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                            />
+                            {/* Badges */}
+                            <div style={{
+                                position: 'absolute',
+                                top: '15px',
+                                right: '15px',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'flex-end',
+                                gap: '5px'
+                            }}>
+                                <div style={{
+                                    background: 'rgba(0,0,0,0.8)',
+                                    color: '#fff',
+                                    padding: '4px 8px',
+                                    borderRadius: '4px',
+                                    fontSize: '0.7rem',
+                                    fontWeight: 'bold',
+                                    border: '1px solid rgba(255,255,255,0.3)'
                                 }}>
-                                    {t}
-                                </span>
-                            ))}
+                                    {project.degree}
+                                </div>
+                                <div style={{
+                                    background: 'var(--neon-purple)',
+                                    color: '#fff',
+                                    padding: '4px 8px',
+                                    borderRadius: '4px',
+                                    fontSize: '0.7rem',
+                                    fontWeight: 'bold',
+                                }}>
+                                    {project.category}
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Content Area */}
+                        <div style={{ padding: '25px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px' }}>
+                                <h3 style={{ fontSize: '1.4rem', margin: 0, color: '#fff' }}>{project.title}</h3>
+                            </div>
+                            
+                            <p style={{ 
+                                fontSize: '0.9rem', 
+                                color: 'var(--neon-cyan)', 
+                                marginBottom: '15px', 
+                                fontWeight: 600 
+                            }}>
+                                by {project.team}
+                            </p>
+
+                            <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px', flex: 1 }}>
+                                {project.description}
+                            </p>
+
+                            {/* Tech Stack Tags */}
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: 'auto' }}>
+                                {project.tech.map((t: string, i: number) => (
+                                    <span key={i} style={{ 
+                                        background: 'rgba(255,255,255,0.1)', 
+                                        padding: '4px 10px', 
+                                        borderRadius: '4px', 
+                                        fontSize: '0.8rem',
+                                        color: '#aaa' 
+                                    }}>
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                </div>
-            ))}
-        </div>
+                ))}
+            </div>
+        ) : (
+             <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
+                <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>No Projects Found</h3>
+                <p>There are no projects listed under {activeDegree} for the {activeCategory} category yet.</p>
+             </div>
+        )}
 
       </div>
 

@@ -19,6 +19,7 @@ interface ProjectData {
   title: string;
   team: string;
   members: string[];
+  degree: string;
   category: string;
   image: string;
   description: string;
@@ -118,21 +119,33 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 justifyContent: 'center',
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.02), transparent)'
             }}>
-                {/* Category Badge */}
-                <div style={{ 
-                    alignSelf: 'flex-start',
-                    padding: '6px 12px', 
-                    borderRadius: '4px', 
-                    background: 'rgba(0, 243, 255, 0.1)', 
-                    color: '#00f3ff', 
-                    border: '1px solid rgba(0, 243, 255, 0.3)',
-                    fontSize: '0.8rem', 
-                    fontWeight: 'bold', 
-                    letterSpacing: '1px',
-                    marginBottom: '20px',
-                    textTransform: 'uppercase'
-                }}>
-                    {project.category}
+                {/* Badges */}
+                <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+                    <div style={{ 
+                        padding: '6px 12px', 
+                        borderRadius: '4px', 
+                        background: '#fff', 
+                        color: '#000', 
+                        fontSize: '0.8rem', 
+                        fontWeight: 'bold', 
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                    }}>
+                        {project.degree}
+                    </div>
+                    <div style={{ 
+                        padding: '6px 12px', 
+                        borderRadius: '4px', 
+                        background: 'rgba(0, 243, 255, 0.1)', 
+                        color: '#00f3ff', 
+                        border: '1px solid rgba(0, 243, 255, 0.3)',
+                        fontSize: '0.8rem', 
+                        fontWeight: 'bold', 
+                        letterSpacing: '1px',
+                        textTransform: 'uppercase'
+                    }}>
+                        {project.category}
+                    </div>
                 </div>
 
                 <h2 style={{ 
