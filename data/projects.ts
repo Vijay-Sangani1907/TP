@@ -14,14 +14,14 @@
 export const PROJECTS = [
   {
     id: 1,
-    title: "EcoMind AI",
+    title: "Aron Model",
     team: "GreenBytes",
-    members: ["Sarah Jenkins", "Mike Ross", "Alisha Gupta"],
-    degree: "B. Tech",
-    category: "AI",
+    members: ["Iqra Sayyed", "Arsheen Shaikh", "Iram Shaikh", "Alya Mhaiskar", "Hapasa Shaikh", "Charul Sawant", "Kasturi Thasala", "Vaibhavi Thakur"],
+    degree: "B.Sc",
+    category: "IoT/Robotics",
     image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
-    description: "An AI-powered recycling sorter that uses computer vision to separate waste types in real-time, improving recycling facility efficiency by 40%. The system utilizes a custom trained CNN model to identify 50+ types of recyclable materials.",
-    tech: ["TensorFlow", "Raspberry Pi", "Python", "OpenCV"]
+    description: "ARON Model is an automated robotic system designed for safe and efficient manhole and sewer cleaning. It eliminates the need for manual scavenging by using smart sensors, real-time monitoring, and a crane-assisted mechanism to inspect, detect, and remove waste—ensuring zero human entry into hazardous environments.",
+    tech: ["Thony", "Raspberry Pi", "Python", "OpenCV", "Ultrasonic Sensors"]
   },
   {
     id: 2,
@@ -110,5 +110,71 @@ export const PROJECTS = [
     image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
     description: "Experimental neural network optimized for quantum simulation processing, attempting to bridge classical ML with quantum states.",
     tech: ["Qiskit", "Python", "PyTorch", "IBM Q"]
+  },
+  {
+    id: 10,
+    title: "SmartFarm",
+    team: "AgriTechies",
+    members: ["Farmer Joe", "Farmer Jane"],
+    degree: "B. Tech",
+    category: "IoT",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    description: "IoT-based smart farming solution monitoring crop health, soil moisture, and weather conditions to optimize yield and reduce water usage by 30%.",
+    tech: ["ESP32", "Node-RED", "React", "Firebase"]
+  },
+  {
+    id: 11,
+    title: "EduVerse",
+    team: "LearnTech",
+    members: ["Prof. Oak", "Prof. Elm"],
+    degree: "B.E",
+    category: "AR/VR",
+    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
+    description: "Immersive virtual learning environment for students to explore historical events and scientific concepts in a 3D space.",
+    tech: ["Unity", "C#", "ARCore", "Vuforia"]
+  },
+  {
+    id: 12,
+    title: "GreenChain",
+    team: "EcoTech",
+    members: ["Greta Thunberg", "Leonardo DiCaprio"],
+    degree: "B.Sc",
+    category: "Blockchain",
+    image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
+    description: "Blockchain platform incentivizing carbon offsetting through tradable carbon credits verified via IoT sensors.",
+    tech: ["Ethereum", "Solidity", "React", "IPFS"]
+  },
+  {
+    id: 13,
+    title: "RoboTutor",
+    team: "AI Scholars",
+    members: ["Dr. Smith", "Dr. Johnson"],
+    degree: "B.E",
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
+    description: "AI-powered tutoring system that adapts to individual learning styles and provides personalized feedback.",
+    tech: ["Python", "TensorFlow", "React", "Firebase"]
+  },
+  {
+    id: 14,
+    title: "UrbanSense",
+    team: "CityTech",
+    members: ["Jane Doe", "John Smith"],
+    degree: "B. Tech",
+    category: "IoT",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
+    description: "IoT-based urban sensing platform monitoring air quality, noise levels, and traffic patterns to improve city planning.",
+    tech: ["ESP32", "Node-RED", "React", "Firebase"]
+  },
+  {
+    id: 15,
+    title: "BlockHealth",
+    team: "HealthChain",
+    members: ["Dr. Alice", "Dr. Bob"],
+    degree: "B. Tech",
+    category: "Blockchain",
+    image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
+    description: "Blockchain platform for secure and transparent health records management.",
+    tech: ["Ethereum", "Solidity", "React", "IPFS"]
   }
 ];
