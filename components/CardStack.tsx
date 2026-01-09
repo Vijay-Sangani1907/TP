@@ -41,6 +41,7 @@ export const CardStack: React.FC<CardStackProps> = ({ items, onCardClick, scaleF
   const [isPaused, setIsPaused] = useState(false);
   
   // Touch handling
+  const touchStartX = useRef(0);
   const touchStartY = useRef(0);
 
   // Auto-swap logic
@@ -65,16 +66,22 @@ export const CardStack: React.FC<CardStackProps> = ({ items, onCardClick, scaleF
   // Mobile Swipe Logic
   const handleTouchStart = (e: React.TouchEvent) => {
     setIsPaused(true);
+    touchStartX.current = e.touches[0].clientX;
     touchStartY.current = e.touches[0].clientY;
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
     const touchEndY = e.changedTouches[0].clientY;
-    const diff = touchStartY.current - touchEndY;
+    
+    const diffX = touchStartX.current - touchEndX;
+    const diffY = touchStartY.current - touchEndY;
 
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) handleNext();
-      else handlePrev();
+    // Change to Horizontal Swipe for Card Swap to allow Vertical Scrolling
+    // Logic: If horizontal movement is greater than vertical movement AND exceeds threshold
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+      if (diffX > 0) handleNext(); // Swipe Left -> Next
+      else handlePrev();           // Swipe Right -> Prev
     }
     
     setTimeout(() => setIsPaused(false), 2000);
@@ -138,7 +145,7 @@ export const CardStack: React.FC<CardStackProps> = ({ items, onCardClick, scaleF
           transform: `scale(${scaleFactor}) skewY(-5deg) rotateY(5deg)`,
           transformOrigin: 'top left', // Scale from top-left to fit in the container
           transformStyle: 'preserve-3d',
-          touchAction: 'none'
+          touchAction: 'pan-y' // Changed to allow vertical scrolling
         }}
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}

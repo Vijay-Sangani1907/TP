@@ -1,13 +1,14 @@
 /*
  *  --------------------------------------------------------------------------
- *   TECHITHON 2026 | OFFICIAL SOURCE CODE
+ *   TECHFEST 2025 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
- *   Designed & Developed by: Vijay Sangani
+ *   Designed & Developed by: The Lead Engineer
  *   
- *   Contributors: Mayank Bhuvad, Shlok Nair, Yug Sawant
+ *   "The best way to predict the future is to invent it."
  *
- *   (c) 2026 All Rights Reserved.
+ *   (c) 2025 All Rights Reserved.
+ *   Verified Signature: 0xDEV_AUTH_TOKEN_ACTIVE
  *  --------------------------------------------------------------------------
  */
 
@@ -17,13 +18,14 @@ import ReactDOM from 'react-dom';
 interface ProjectData {
   id: number;
   title: string;
-  team: string;
-  members: string[];
-  degree: string;
   category: string;
   image: string;
   description: string;
   tech: string[];
+  // keeping optional fields to match data structure if needed, but not rendering them
+  team?: string;
+  members?: string[];
+  degree?: string;
 }
 
 interface ProjectModalProps {
@@ -124,18 +126,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                     <div style={{ 
                         padding: '6px 12px', 
                         borderRadius: '4px', 
-                        background: '#fff', 
-                        color: '#000', 
-                        fontSize: '0.8rem', 
-                        fontWeight: 'bold', 
-                        letterSpacing: '1px',
-                        textTransform: 'uppercase'
-                    }}>
-                        {project.degree}
-                    </div>
-                    <div style={{ 
-                        padding: '6px 12px', 
-                        borderRadius: '4px', 
                         background: 'rgba(0, 243, 255, 0.1)', 
                         color: '#00f3ff', 
                         border: '1px solid rgba(0, 243, 255, 0.3)',
@@ -157,43 +147,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 }}>
                     {project.title}
                 </h2>
-
-                <div style={{ 
-                    fontSize: '1.1rem', 
-                    color: '#ccc', 
-                    marginBottom: '25px',
-                    fontStyle: 'italic'
-                }}>
-                    by <span style={{ color: '#fff', fontWeight: 600 }}>{project.team}</span>
-                </div>
-
-                {/* Members Section */}
-                <div style={{ marginTop: 'auto' }}>
-                    <h4 style={{ 
-                        fontSize: '0.9rem', 
-                        color: '#888', 
-                        textTransform: 'uppercase', 
-                        letterSpacing: '1px',
-                        marginBottom: '10px' 
-                    }}>Team Members</h4>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                        {project.members.map((member, i) => (
-                            <div key={i} style={{ 
-                                display: 'flex', 
-                                alignItems: 'center', 
-                                gap: '8px',
-                                background: 'rgba(255,255,255,0.05)',
-                                padding: '6px 12px',
-                                borderRadius: '20px',
-                                fontSize: '0.9rem',
-                                border: '1px solid rgba(255,255,255,0.1)'
-                            }}>
-                                <div style={{ width: '8px', height: '8px', background: '#00f3ff', borderRadius: '50%' }}></div>
-                                {member}
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
         </div>
 

@@ -17,25 +17,23 @@ import { PROJECTS } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
 
 export const ProjectsSection: React.FC = () => {
-  const [activeDegree, setActiveDegree] = useState('B. Tech');
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const degrees = ['B. Tech', 'B.E', 'B.Sc'];
   const categories = ['All', 'AI', 'Blockchain', 'AR/VR', 'IoT'];
 
   useEffect(() => {
-    // 2-Level Filter Logic
-    let filtered = PROJECTS.filter(p => p.degree === activeDegree);
+    // Filter Logic: Category only
+    let filtered = PROJECTS;
     
     if (activeCategory !== 'All') {
       filtered = filtered.filter(p => p.category === activeCategory);
     }
     
     setFilteredProjects(filtered);
-  }, [activeDegree, activeCategory]);
+  }, [activeCategory]);
 
   useEffect(() => {
     // Animate grid items when list changes
@@ -84,38 +82,7 @@ export const ProjectsSection: React.FC = () => {
             </p>
         </div>
 
-        {/* Level 1 Filter: Degrees */}
-        <div style={{ 
-            display: 'flex', 
-            justifyContent: 'center', 
-            gap: '20px', 
-            marginBottom: '30px',
-            flexWrap: 'wrap'
-        }}>
-            {degrees.map(deg => (
-                <button
-                    key={deg}
-                    onClick={() => { setActiveDegree(deg); setActiveCategory('All'); }} // Reset category when degree changes
-                    style={{
-                        padding: '12px 30px',
-                        background: activeDegree === deg ? '#fff' : 'rgba(255,255,255,0.05)',
-                        color: activeDegree === deg ? '#000' : '#fff',
-                        border: activeDegree === deg ? '1px solid #fff' : '1px solid rgba(255,255,255,0.2)',
-                        borderRadius: '4px',
-                        cursor: 'pointer',
-                        fontFamily: 'Orbitron',
-                        fontSize: '1rem',
-                        fontWeight: 700,
-                        transition: 'all 0.3s',
-                        clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)'
-                    }}
-                >
-                    {deg}
-                </button>
-            ))}
-        </div>
-
-        {/* Level 2 Filter: Categories */}
+        {/* Filter: Categories */}
         <div style={{ 
             display: 'flex', 
             justifyContent: 'center', 
@@ -200,17 +167,6 @@ export const ProjectsSection: React.FC = () => {
                                 gap: '5px'
                             }}>
                                 <div style={{
-                                    background: 'rgba(0,0,0,0.8)',
-                                    color: '#fff',
-                                    padding: '4px 8px',
-                                    borderRadius: '4px',
-                                    fontSize: '0.7rem',
-                                    fontWeight: 'bold',
-                                    border: '1px solid rgba(255,255,255,0.3)'
-                                }}>
-                                    {project.degree}
-                                </div>
-                                <div style={{
                                     background: 'var(--neon-purple)',
                                     color: '#fff',
                                     padding: '4px 8px',
@@ -229,15 +185,6 @@ export const ProjectsSection: React.FC = () => {
                                 <h3 style={{ fontSize: '1.4rem', margin: 0, color: '#fff' }}>{project.title}</h3>
                             </div>
                             
-                            <p style={{ 
-                                fontSize: '0.9rem', 
-                                color: 'var(--neon-cyan)', 
-                                marginBottom: '15px', 
-                                fontWeight: 600 
-                            }}>
-                                by {project.team}
-                            </p>
-
                             <p style={{ color: '#ccc', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '20px', flex: 1 }}>
                                 {project.description}
                             </p>
@@ -263,7 +210,7 @@ export const ProjectsSection: React.FC = () => {
         ) : (
              <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>No Projects Found</h3>
-                <p>There are no projects listed under {activeDegree} for the {activeCategory} category yet.</p>
+                <p>There are no projects listed for the {activeCategory} category yet.</p>
              </div>
         )}
 
