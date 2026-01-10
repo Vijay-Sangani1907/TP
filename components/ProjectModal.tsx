@@ -120,15 +120,41 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 justifyContent: 'center',
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.02), transparent)'
             }}>
-                {/* Badges */}
+                
+                {/* Degree Badge: Separate Row, Above Categories */}
+                {project.degree && (
+                    <div style={{ marginBottom: '25px', marginTop: '-15px' }}>
+                        <span style={{ 
+                            // White Hot Hierarchical Boost (Static)
+                            background: '#ffffff',
+                            color: '#000',
+                            
+                            // Shape & Text
+                            clipPath: 'polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)',
+                            padding: '12px 35px', 
+                            fontSize: '1.1rem', 
+                            fontWeight: 900, 
+                            fontFamily: 'Orbitron',
+                            letterSpacing: '3px',
+                            textTransform: 'uppercase',
+                            display: 'inline-block',
+                            
+                            // Static Glow
+                            boxShadow: '0 0 25px rgba(255, 255, 255, 0.4)',
+                        }}>
+                            {project.degree}
+                        </span>
+                    </div>
+                )}
+
+                {/* Categories Row - PRESERVED ORIGINAL SOLID PURPLE STYLE */}
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
                     {project.category.map((cat, idx) => (
                         <div key={idx} style={{ 
                             padding: '6px 12px', 
                             borderRadius: '4px', 
-                            background: 'rgba(0, 243, 255, 0.1)', 
-                            color: '#00f3ff', 
-                            border: '1px solid rgba(0, 243, 255, 0.3)',
+                            background: 'var(--neon-purple)', 
+                            color: '#fff', 
                             fontSize: '0.8rem', 
                             fontWeight: 'bold', 
                             letterSpacing: '1px',
@@ -143,7 +169,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                     fontSize: '2.5rem', 
                     margin: '0 0 10px 0', 
                     color: '#fff', 
-                    fontFamily: 'Orbitron',
+                    fontFamily: 'Orbitron', 
                     lineHeight: 1.1 
                 }}>
                     {project.title}

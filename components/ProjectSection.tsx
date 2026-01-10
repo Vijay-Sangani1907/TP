@@ -17,23 +17,31 @@ import { PROJECTS } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
 
 export const ProjectsSection: React.FC = () => {
+  // Default to B. Tech as 'All' option is removed
+  const [activeDegree, setActiveDegree] = useState('B. Tech');
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const categories = ['All', 'AI', 'Blockchain', 'AR/VR', 'IoT'];
+  // Exact options requested
+  const degrees = ['B.E', 'B.Sc', 'B.Tech'];
 
   useEffect(() => {
-    // Filter Logic: Category only (handling multiple categories)
+    // Filter Logic: Degree AND Category
     let filtered = PROJECTS;
     
+    // 1. Filter by Degree (Strict, no 'All')
+    filtered = filtered.filter(p => p.degree === activeDegree);
+
+    // 2. Filter by Category
     if (activeCategory !== 'All') {
       filtered = filtered.filter(p => p.category.includes(activeCategory));
     }
     
     setFilteredProjects(filtered);
-  }, [activeCategory]);
+  }, [activeDegree, activeCategory]);
 
   useEffect(() => {
     // Animate grid items when list changes
@@ -82,35 +90,91 @@ export const ProjectsSection: React.FC = () => {
             </p>
         </div>
 
-        {/* Filter: Categories */}
+        {/* Filters Container */}
         <div style={{ 
             display: 'flex', 
-            justifyContent: 'center', 
-            gap: '10px', 
-            marginBottom: '50px',
-            flexWrap: 'wrap'
+            flexDirection: 'column', 
+            alignItems: 'center', 
+            gap: '30px', // Spacing between Degree and Category rows
+            marginBottom: '60px'
         }}>
-            {categories.map(cat => (
-                <button
-                    key={cat}
-                    onClick={() => setActiveCategory(cat)}
-                    style={{
-                        padding: '8px 20px',
-                        background: activeCategory === cat ? 'var(--neon-cyan)' : 'transparent',
-                        color: activeCategory === cat ? '#000' : '#aaa',
-                        border: activeCategory === cat ? '1px solid var(--neon-cyan)' : '1px solid rgba(255,255,255,0.1)',
-                        borderRadius: '20px',
-                        cursor: 'pointer',
-                        fontFamily: 'Inter',
-                        fontSize: '0.85rem',
-                        fontWeight: 600,
-                        transition: 'all 0.3s',
-                        textTransform: 'uppercase'
-                    }}
-                >
-                    {cat}
-                </button>
-            ))}
+            
+            {/* LEVEL 1: DEGREE FILTER (Big, Chamfered, Neon/Glass) */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '20px' }}>
+                {degrees.map(deg => (
+                    <button
+                        key={deg}
+                        onClick={() => setActiveDegree(deg)}
+                        style={{
+                            // Shape: Chamfered Rectangle (Preserved)
+                            clipPath: 'polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px)',
+                            padding: '12px 35px', 
+                            // New Better Design: Gradient/Glass combo
+                            background: activeDegree === deg 
+                                ? 'linear-gradient(135deg, #bc13fe 0%, #9000ff 100%)' 
+                                : 'rgba(255, 255, 255, 0.03)',
+                            border: activeDegree === deg 
+                                ? '1px solid #bc13fe' 
+                                : '1px solid rgba(188, 19, 254, 0.3)',
+                            color: '#ffffff',
+                            cursor: 'pointer',
+                            fontFamily: 'Orbitron',
+                            fontSize: '1.1rem',
+                            fontWeight: 700,
+                            letterSpacing: '1px',
+                            transition: 'all 0.3s',
+                            textTransform: 'uppercase',
+                            // Enhanced Glow for Active State
+                            boxShadow: activeDegree === deg 
+                                ? '0 0 25px rgba(188, 19, 254, 0.5), inset 0 0 10px rgba(255,255,255,0.2)' 
+                                : 'none',
+                            backdropFilter: 'blur(5px)'
+                        }}
+                        onMouseEnter={(e) => {
+                            if (activeDegree !== deg) {
+                                e.currentTarget.style.background = 'rgba(188, 19, 254, 0.2)';
+                                e.currentTarget.style.borderColor = '#bc13fe';
+                                e.currentTarget.style.boxShadow = '0 0 15px rgba(188, 19, 254, 0.2)';
+                            }
+                        }}
+                        onMouseLeave={(e) => {
+                            if (activeDegree !== deg) {
+                                e.currentTarget.style.background = 'rgba(255, 255, 255, 0.03)';
+                                e.currentTarget.style.borderColor = 'rgba(188, 19, 254, 0.3)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }
+                        }}
+                    >
+                        {deg}
+                    </button>
+                ))}
+            </div>
+
+            {/* LEVEL 2: SUB-CATEGORY FILTER (Smaller, Pill, Cyan) */}
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+                {categories.map(cat => (
+                    <button
+                        key={cat}
+                        onClick={() => setActiveCategory(cat)}
+                        style={{
+                            padding: '8px 24px', 
+                            background: activeCategory === cat ? 'var(--neon-cyan)' : 'transparent',
+                            color: activeCategory === cat ? '#000' : '#aaa',
+                            border: activeCategory === cat ? '1px solid var(--neon-cyan)' : '1px solid rgba(255,255,255,0.1)',
+                            borderRadius: '30px', // Pill shape
+                            cursor: 'pointer',
+                            fontFamily: 'Inter',
+                            fontSize: '0.85rem',
+                            fontWeight: 600,
+                            transition: 'all 0.3s',
+                            textTransform: 'uppercase'
+                        }}
+                    >
+                        {cat}
+                    </button>
+                ))}
+            </div>
+
         </div>
 
         {/* Projects Grid */}
@@ -166,6 +230,21 @@ export const ProjectsSection: React.FC = () => {
                                 alignItems: 'flex-end',
                                 gap: '5px'
                             }}>
+                                {/* Degree Badge - Keeping consistent on card, but smaller */}
+                                {project.degree && (
+                                     <div style={{
+                                        background: 'var(--neon-purple)',
+                                        clipPath: 'polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px)',
+                                        color: '#fff',
+                                        padding: '4px 10px',
+                                        fontSize: '0.7rem',
+                                        fontWeight: 'bold',
+                                        textTransform: 'uppercase'
+                                    }}>
+                                        {project.degree}
+                                    </div>
+                                )}
+                                {/* Category Badges - REVERTED TO ORIGINAL SOLID PURPLE STYLE */}
                                 {project.category.map((cat, idx) => (
                                     <div key={idx} style={{
                                         background: 'var(--neon-purple)',
@@ -212,7 +291,21 @@ export const ProjectsSection: React.FC = () => {
         ) : (
              <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>No Projects Found</h3>
-                <p>There are no projects listed for the {activeCategory} category yet.</p>
+                <p>There are no projects listed for <strong>{activeDegree}</strong> in the <strong>{activeCategory}</strong> category.</p>
+                <button 
+                    onClick={() => setActiveCategory('All')}
+                    style={{
+                        marginTop: '20px',
+                        background: 'transparent',
+                        border: '1px solid var(--neon-cyan)',
+                        color: 'var(--neon-cyan)',
+                        padding: '10px 20px',
+                        borderRadius: '4px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    RESET CATEGORY
+                </button>
              </div>
         )}
 
