@@ -25,11 +25,11 @@ export const ProjectsSection: React.FC = () => {
   const categories = ['All', 'AI', 'Blockchain', 'AR/VR', 'IoT'];
 
   useEffect(() => {
-    // Filter Logic: Category only
+    // Filter Logic: Category only (handling multiple categories)
     let filtered = PROJECTS;
     
     if (activeCategory !== 'All') {
-      filtered = filtered.filter(p => p.category === activeCategory);
+      filtered = filtered.filter(p => p.category.includes(activeCategory));
     }
     
     setFilteredProjects(filtered);
@@ -166,16 +166,18 @@ export const ProjectsSection: React.FC = () => {
                                 alignItems: 'flex-end',
                                 gap: '5px'
                             }}>
-                                <div style={{
-                                    background: 'var(--neon-purple)',
-                                    color: '#fff',
-                                    padding: '4px 8px',
-                                    borderRadius: '4px',
-                                    fontSize: '0.7rem',
-                                    fontWeight: 'bold',
-                                }}>
-                                    {project.category}
-                                </div>
+                                {project.category.map((cat, idx) => (
+                                    <div key={idx} style={{
+                                        background: 'var(--neon-purple)',
+                                        color: '#fff',
+                                        padding: '4px 8px',
+                                        borderRadius: '4px',
+                                        fontSize: '0.7rem',
+                                        fontWeight: 'bold',
+                                    }}>
+                                        {cat}
+                                    </div>
+                                ))}
                             </div>
                         </div>
 

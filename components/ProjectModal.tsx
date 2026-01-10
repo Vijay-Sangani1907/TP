@@ -1,14 +1,13 @@
 /*
  *  --------------------------------------------------------------------------
- *   TECHFEST 2025 | OFFICIAL SOURCE CODE
+ *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
- *   Designed & Developed by: The Lead Engineer
+ *   Designed & Developed by: Vijay Sangani
  *   
- *   "The best way to predict the future is to invent it."
+ *   Contributors: Mayank Bhuvad, Shlok Nair, Yug Sawant
  *
- *   (c) 2025 All Rights Reserved.
- *   Verified Signature: 0xDEV_AUTH_TOKEN_ACTIVE
+ *   (c) 2026 All Rights Reserved.
  *  --------------------------------------------------------------------------
  */
 
@@ -18,7 +17,7 @@ import ReactDOM from 'react-dom';
 interface ProjectData {
   id: number;
   title: string;
-  category: string;
+  category: string[];
   image: string;
   description: string;
   tech: string[];
@@ -122,20 +121,22 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ isOpen, onClose, pro
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.02), transparent)'
             }}>
                 {/* Badges */}
-                <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
-                    <div style={{ 
-                        padding: '6px 12px', 
-                        borderRadius: '4px', 
-                        background: 'rgba(0, 243, 255, 0.1)', 
-                        color: '#00f3ff', 
-                        border: '1px solid rgba(0, 243, 255, 0.3)',
-                        fontSize: '0.8rem', 
-                        fontWeight: 'bold', 
-                        letterSpacing: '1px',
-                        textTransform: 'uppercase'
-                    }}>
-                        {project.category}
-                    </div>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '20px' }}>
+                    {project.category.map((cat, idx) => (
+                        <div key={idx} style={{ 
+                            padding: '6px 12px', 
+                            borderRadius: '4px', 
+                            background: 'rgba(0, 243, 255, 0.1)', 
+                            color: '#00f3ff', 
+                            border: '1px solid rgba(0, 243, 255, 0.3)',
+                            fontSize: '0.8rem', 
+                            fontWeight: 'bold', 
+                            letterSpacing: '1px',
+                            textTransform: 'uppercase'
+                        }}>
+                            {cat}
+                        </div>
+                    ))}
                 </div>
 
                 <h2 style={{ 
