@@ -11,11 +11,14 @@
  *  --------------------------------------------------------------------------
  */
 import LangBuddy from '../assests/langbuddy.png';
+import Glove from '../assests/Glove.png';
+import HumanoidRobot from '../assests/Humanoid Robot.png';
+import Ecofin from '../assests/EcoFin.png';
 
 export const PROJECTS = [
   {
     id: 1,
-    title: "Aron Model",
+    title: "ARON Model",
     category: ["IoT", "Robotics"],
     degree: "B.Sc",
     image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
@@ -27,27 +30,27 @@ export const PROJECTS = [
     title: "Smart Glove Safety",
     category: ["Blockchain"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80",
-    description: "Decentralized voting platform ensuring transparency and anonymity for student council elections using smart contracts. Features a zero-knowledge proof authentication system.",
-    tech: ["Solidity", "React", "Ethereum", "Web3.js"]
+    image: Glove,
+    description: "The Smart Glove acts as an intelligent barrier against electric shocks, extreme heat, and hazardous vibrations. By transforming standard protective gear into a responsive guardian, it provides real-time alerts to keep you safe in high-risk environments. Work with total confidence knowing that advanced protection is always at your fingertips.",
+    tech: ["Raspberry Pi", "Multi-Hazard Detection Module", "Python"]
   },
   {
     id: 3,
     title: "Humanoid Robot",
     category: ["AR/VR"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1617802690992-15d93263d3a9?w=800&q=80",
-    description: "A full digital twin of the university campus allowing remote tours, virtual lectures, and multiplayer social spaces for students. Includes spatial audio and avatar customization.",
-    tech: ["Unity", "C#", "Oculus SDK", "Photon"]
+    image: HumanoidRobot,
+    description: "Redefining safety with human-like adaptability, this humanoid robot provides tireless 24/7 surveillance and hazard detection for homes and facilities. Equipped with intelligent navigation and real-time monitoring, it autonomously patrols to identify threats before they escalate. It stands as a vigilant, reliable guardian, ensuring complete peace of mind through seamless automation.",
+    tech: ["Raspberry Pi", "AI-powered camera module", "High-Torque Motors", "Python"]
   },
   {
     id: 4,
     title: "Ecofin",
     category: ["IoT", "Robotics"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1530893609608-32a9af3aa95c?w=800&q=80",
+    image: Ecofin,
     description: "EcoFin is a biomimetic aquatic robotic system engineered for efficient environmental monitoring and intelligent water ecosystem management.",
-    tech: ["Arduino", "C++", "LoRaWAN", "GPS Module"]
+    tech: ["Raspberry Pi", "Servos", "Batteries", "Quality Detection Modules"]
   },
   {
     id: 5,
@@ -73,8 +76,8 @@ export const PROJECTS = [
     category: ["Blockchain"],
     degree: "B.Sc",
     image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&q=80",
-    description: "Peer-to-peer lending protocol on the Polygon network allowing under-collateralized loans based on on-chain reputation scores.",
-    tech: ["Solidity", "Polygon", "Hardhat", "React"]
+    description: "MTPY is an interactive robotic companion designed to ignite curiosity and foster essential STEM skills in the next generation. By transforming complex engineering concepts into an accessible, hands-on experience, it empowers young minds to learn through direct interaction. This simple yet powerful platform serves as the perfect launchpad for future innovators to explore the world of robotics.",
+    tech: ["Arduinos", "High Torque Motors", "Python"]
   },
   {
     id: 8,

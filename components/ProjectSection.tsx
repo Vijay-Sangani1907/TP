@@ -17,8 +17,8 @@ import { PROJECTS } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
 
 export const ProjectsSection: React.FC = () => {
-  // Default to B. Tech as 'All' option is removed
-  const [activeDegree, setActiveDegree] = useState('B. Tech');
+  // Default to B.E
+  const [activeDegree, setActiveDegree] = useState('B.E');
   const [activeCategory, setActiveCategory] = useState('All');
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);

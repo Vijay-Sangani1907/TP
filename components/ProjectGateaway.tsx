@@ -11,46 +11,132 @@
  *  --------------------------------------------------------------------------
  */
 
-import React, { useRef, useMemo, useEffect } from 'react';
+import React, { useRef, useMemo, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { PROJECTS } from '../data/projects';
 
+// --- LAYOUT SYSTEMS CONFIGURATION ---
+
+// Each system defines a set of "Safe Zones" (x, y percentages) where cards can live without overlapping.
+// We randomly pick ONE system on mount.
+
+const DESKTOP_SYSTEMS = [
+    // System 1: The Classic Grid (3x2)
+    [
+        { x: 20, y: 25 }, { x: 50, y: 25 }, { x: 80, y: 25 },
+        { x: 20, y: 75 }, { x: 50, y: 75 }, { x: 80, y: 75 }
+    ],
+    // System 2: The "W" Formation (Zig-Zag)
+    [
+        { x: 15, y: 20 }, { x: 35, y: 80 }, { x: 50, y: 20 }, 
+        { x: 65, y: 80 }, { x: 85, y: 20 }, { x: 50, y: 55 }
+    ],
+    // System 3: The Peripheral Ring (Open Center)
+    [
+        { x: 15, y: 30 }, { x: 50, y: 15 }, { x: 85, y: 30 },
+        { x: 15, y: 70 }, { x: 50, y: 85 }, { x: 85, y: 70 }
+    ],
+    // System 4: Asymmetric Scatter
+    [
+        { x: 20, y: 20 }, { x: 60, y: 30 }, { x: 90, y: 20 },
+        { x: 30, y: 70 }, { x: 70, y: 80 }, { x: 10, y: 50 }
+    ]
+];
+
+const MOBILE_SYSTEMS = [
+    // System 1: Vertical Stack
+    [
+        { x: 50, y: 20 },
+        { x: 50, y: 50 },
+        { x: 50, y: 80 }
+    ],
+    // System 2: Alternating
+    [
+        { x: 30, y: 20 },
+        { x: 70, y: 50 },
+        { x: 30, y: 80 }
+    ]
+];
+
+// Utility to shuffle array using Fisher-Yates algorithm
+const shuffle = <T,>(array: T[]): T[] => {
+    const newArr = [...array];
+    for (let i = newArr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+    }
+    return newArr;
+};
+
 export const ProjectGateway: React.FC = () => {
     const navigate = useNavigate();
     const sectionRef = useRef<HTMLElement>(null);
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Generate random positions for background cards once on mount
-    const bgCards = useMemo(() => {
-        // Use available projects (limit to 6 to avoid clutter)
-        return PROJECTS.slice(0, 6).map((project, i) => ({
-            id: project.id,
-            image: project.image,
-            // Random positions spread across the container
-            top: Math.random() * 80 + 10, // 10% to 90%
-            left: Math.random() * 90 + 5, // 5% to 95%
-            rotation: Math.random() * 40 - 20, // -20deg to 20deg
-            scale: Math.random() * 0.4 + 0.6, // 0.6 to 1.0
-            blur: Math.random() * 2 + 2, // 2px to 4px
-            depth: Math.random() * 20 // Parallax depth simulation
-        }));
+    // Detect mobile layout to adjust card count
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile(); // Initial check
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
     }, []);
+
+    // Generate cards using the Multi-System Engine
+    const bgCards = useMemo(() => {
+        // 1. Determine Count & Available Systems
+        const count = isMobile ? 3 : 6;
+        const availableSystems = isMobile ? MOBILE_SYSTEMS : DESKTOP_SYSTEMS;
+
+        // 2. RANDOMLY SELECT ONE SYSTEM
+        // This is the core of the "Hidden Slot System" logic.
+        const randomIndex = Math.floor(Math.random() * availableSystems.length);
+        const selectedSystem = availableSystems[randomIndex];
+        
+        // 3. Select Random Projects
+        // Shuffle the full list and take the first N items needed for the slots
+        const selectedProjects = shuffle(PROJECTS).slice(0, count);
+
+        // 4. Shuffle the slots themselves
+        // This ensures that even if we pick "System 1", Project A doesn't always go to Top-Left.
+        const shuffledSlots = shuffle(selectedSystem);
+
+        return selectedProjects.map((project, i) => {
+            // Assign a random slot from the CHOSEN system
+            const slot = shuffledSlots[i] || selectedSystem[0];
+            
+            // 5. Add "Jitter" (Random Offset within the safe slot)
+            // Keeps it organic while respecting the non-overlapping system structure
+            const xJitter = (Math.random() * 10) - 5; // +/- 5%
+            const yJitter = (Math.random() * 10) - 5;  // +/- 5%
+
+            return {
+                id: project.id,
+                image: project.image,
+                // Clamp values to keep inside container
+                top: Math.max(10, Math.min(90, slot.y + yJitter)),
+                left: Math.max(10, Math.min(90, slot.x + xJitter)),
+                rotation: Math.random() * 30 - 15, // -15deg to +15deg
+                scale: Math.random() * 0.2 + 0.8,  // 0.8 to 1.0 scale
+            };
+        });
+    }, [isMobile]); // Re-calculate when switching between mobile/desktop
 
     useEffect(() => {
         // Animate the background cards to float gently
         const ctx = gsap.context(() => {
             gsap.to('.gateway-bg-card', {
-                y: "random(-20, 20)",
-                rotation: "random(-10, 10)",
+                y: "random(-15, 15)",
+                rotation: "random(-5, 5)", // Add slight rotation drift
                 duration: "random(3, 6)",
                 repeat: -1,
                 yoyo: true,
                 ease: "sine.inOut",
-                stagger: 0.5
+                stagger: 0.1
             });
         }, sectionRef);
         return () => ctx.revert();
-    }, []);
+    }, [bgCards]);
 
     const handleMouseEnter = () => {
         // Speed up the grid animation
@@ -67,9 +153,12 @@ export const ProjectGateway: React.FC = () => {
         });
         gsap.to('.gateway-line', { width: '150px', background: '#fff', duration: 0.4 });
         
-        // Clear blur on cards slightly to peek at them? Or blur more?
-        // Let's make them slightly more visible (less transparent) on hover
-        gsap.to('.gateway-bg-card', { opacity: 0.6, filter: 'blur(1px) brightness(0.8)', duration: 0.5 });
+        // Make cards more visible on hover (peek effect)
+        gsap.to('.gateway-bg-card', { 
+            opacity: 0.6, 
+            filter: 'blur(1px) brightness(0.8)', 
+            duration: 0.5 
+        });
     };
 
     const handleMouseLeave = () => {
@@ -87,8 +176,12 @@ export const ProjectGateway: React.FC = () => {
         });
         gsap.to('.gateway-line', { width: '50px', background: '#00f3ff', duration: 0.4 });
 
-        // Reset cards
-        gsap.to('.gateway-bg-card', { opacity: 0.3, filter: 'blur(4px) brightness(0.5)', duration: 0.5 });
+        // Reset cards to background state
+        gsap.to('.gateway-bg-card', { 
+            opacity: 0.3, 
+            filter: 'blur(4px) brightness(0.5)', 
+            duration: 0.5 
+        });
     };
 
     const handleClick = () => {
@@ -134,7 +227,7 @@ export const ProjectGateway: React.FC = () => {
             }}>
                 {bgCards.map((card, i) => (
                     <div 
-                        key={card.id}
+                        key={`${card.id}-${i}`} // Composite key for safety
                         className="gateway-bg-card"
                         style={{
                             position: 'absolute',
@@ -142,6 +235,7 @@ export const ProjectGateway: React.FC = () => {
                             left: `${card.left}%`,
                             width: '220px',
                             height: '150px',
+                            // Combine layout transform with animation transform via GSAP later
                             transform: `translate(-50%, -50%) rotate(${card.rotation}deg) scale(${card.scale})`,
                             borderRadius: '12px',
                             background: `url(${card.image}) center/cover no-repeat`,
