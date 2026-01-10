@@ -10,6 +10,7 @@
  *   (c) 2026 All Rights Reserved.
  *  --------------------------------------------------------------------------
  */
+import LangBuddy from '../assests/langbuddy.png';
 
 export const PROJECTS = [
   {
@@ -48,7 +49,7 @@ export const PROJECTS = [
     id: 5,
     title: "LangBuddy",
     category: "AI",
-    image: "../assests/langbuddy.png",
+    image: LangBuddy,
     description: "LangBuddy is a language assistant that enables real-time voice translation, grammar correction, and interactive language learning to break communication barriers.",
     tech: ["Gradio", "Raspberry Pi", "Python", "Transformers", "Speech-to-Text models", "Text-to-Speech models"]
   },
