@@ -15,15 +15,15 @@ import { PROJECTS } from '../data/projects';
 import { ProjectModal } from './ProjectModal';
 
 export const ProjectsSection: React.FC = () => {
-  // Default to B.E
+  // Default to B.E as it is now first
   const [activeDegree, setActiveDegree] = useState('B.E');
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [activeCategories, setActiveCategories] = useState<string[]>([]); // CHANGED: Now an array for multi-select
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const categories = ['All', 'AI', 'Blockchain', 'AR/VR', 'IoT'];
-  // Exact options requested
+  const categories = ['AI', 'Blockchain', 'AR/VR', 'IoT', 'Robotics'];
+  // Exact options requested: B.E, B.Sc, B.Tech
   const degrees = ['B.E', 'B.Sc', 'B.Tech'];
 
   useEffect(() => {
@@ -33,13 +33,49 @@ export const ProjectsSection: React.FC = () => {
     // 1. Filter by Degree (Strict, no 'All')
     filtered = filtered.filter(p => p.degree === activeDegree);
 
-    // 2. Filter by Category
-    if (activeCategory !== 'All') {
-      filtered = filtered.filter(p => p.category.includes(activeCategory));
+    // 2. Filter by Multiple Categories // CHANGED
+    if (activeCategories.length > 0) {
+      
+      /** 
+       * LOGIC SELECTION A: 'AND' LOGIC (Currently Active)
+       * Show only projects that contain ALL selected categories.
+       */
+      /*
+      filtered = filtered.filter(p => 
+        activeCategories.every(cat => p.category.includes(cat))
+      );
+      */
+
+      /**
+       * LOGIC SELECTION B: 'RANKING' LOGIC (Commented Out)
+       * Uncomment the block below and comment out Selection A to use ranking.
+       * Projects with most matches appear first.
+       */
+      filtered = filtered
+        .map(p => ({
+            ...p,
+            matchCount: p.category.filter(cat => activeCategories.includes(cat)).length
+        }))
+        .filter(p => p.matchCount > 0) // Must match at least one
+        .sort((a, b) => b.matchCount - a.matchCount);
+      
     }
     
     setFilteredProjects(filtered);
-  }, [activeDegree, activeCategory]);
+  }, [activeDegree, activeCategories]); // CHANGED
+    
+  // CHANGED: Toggle logic for multi-select
+  const toggleCategory = (cat: string) => {
+    if (cat === 'All') {
+      setActiveCategories([]);
+    } else {
+      setActiveCategories(prev => 
+        prev.includes(cat) 
+          ? prev.filter(c => c !== cat) 
+          : [...prev, cat]
+      );
+    }
+  };
 
   useEffect(() => {
     // Animate grid items when list changes
@@ -150,15 +186,35 @@ export const ProjectsSection: React.FC = () => {
 
             {/* LEVEL 2: SUB-CATEGORY FILTER (Smaller, Pill, Cyan) */}
             <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+                {/* Special 'All' Button // CHANGED */}
+                <button
+                    onClick={() => toggleCategory('All')}
+                    style={{
+                        padding: '8px 24px', 
+                        background: activeCategories.length === 0 ? 'var(--neon-cyan)' : 'transparent',
+                        color: activeCategories.length === 0 ? '#000' : '#aaa',
+                        border: activeCategories.length === 0 ? '1px solid var(--neon-cyan)' : '1px solid rgba(255,255,255,0.1)',
+                        borderRadius: '30px',
+                        cursor: 'pointer',
+                        fontFamily: 'Inter',
+                        fontSize: '0.85rem',
+                        fontWeight: 600,
+                        transition: 'all 0.3s',
+                        textTransform: 'uppercase'
+                    }}
+                >
+                    All
+                </button>
+
                 {categories.map(cat => (
                     <button
                         key={cat}
-                        onClick={() => setActiveCategory(cat)}
+                        onClick={() => toggleCategory(cat)} // CHANGED
                         style={{
                             padding: '8px 24px', 
-                            background: activeCategory === cat ? 'var(--neon-cyan)' : 'transparent',
-                            color: activeCategory === cat ? '#000' : '#aaa',
-                            border: activeCategory === cat ? '1px solid var(--neon-cyan)' : '1px solid rgba(255,255,255,0.1)',
+                            background: activeCategories.includes(cat) ? 'var(--neon-cyan)' : 'transparent', // CHANGED
+                            color: activeCategories.includes(cat) ? '#000' : '#aaa', // CHANGED
+                            border: activeCategories.includes(cat) ? '1px solid var(--neon-cyan)' : '1px solid rgba(255,255,255,0.1)', // CHANGED
                             borderRadius: '30px', // Pill shape
                             cursor: 'pointer',
                             fontFamily: 'Inter',
@@ -289,9 +345,9 @@ export const ProjectsSection: React.FC = () => {
         ) : (
              <div style={{ textAlign: 'center', padding: '50px', color: '#666' }}>
                 <h3 style={{ fontSize: '1.5rem', marginBottom: '10px' }}>No Projects Found</h3>
-                <p>There are no projects listed for <strong>{activeDegree}</strong> in the <strong>{activeCategory}</strong> category.</p>
+                <p>There are no projects listed for <strong>{activeDegree}</strong> matching your category selection.</p>
                 <button 
-                    onClick={() => setActiveCategory('All')}
+                    onClick={() => toggleCategory('All')} // CHANGED
                     style={{
                         marginTop: '20px',
                         background: 'transparent',

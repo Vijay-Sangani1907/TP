@@ -13,6 +13,7 @@ import LangBuddy from '../assests/langbuddy.png';
 import Glove from '../assests/Glove.png';
 import HumanoidRobot from '../assests/Humanoid Robot.png';
 import Ecofin from '../assests/EcoFin.png';
+import MTPY from '../assests/MTPY.png'
 
 export const PROJECTS = [
   {
@@ -72,11 +73,11 @@ export const PROJECTS = [
   {
     id: 7,
     title: "MTPY-Moving Technology Powering Youth",
-    category: ["Blockchain"],
+    category: ["Robotics", "AI", "IoT"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&q=80",
-    description: "MTPY is an interactive robotic companion designed to ignite curiosity and foster essential STEM skills in the next generation. By transforming complex engineering concepts into an accessible, hands-on experience, it empowers young minds to learn through direct interaction. This simple yet powerful platform serves as the perfect launchpad for future innovators to explore the world of robotics.",
-    tech: ["Arduinos", "High Torque Motors", "Python"]
+    image: MTPY,
+    description: "MTPY is an interactive humanoid robot designed to assist and guide students through voice-based communication. MTPY uses AI voice assistance, servo-based movements, and Bluetooth control to provide information, answer questions, and demonstrate smart robotics applications for youth and educational institutions.",
+    tech: ["Arduino", "Raspberry Pi", "Python", "Servo Motors", "Speech Recognition module", "Text-to-Speech module", "Bluetooth Integration"]
   },
   {
     id: 8,
