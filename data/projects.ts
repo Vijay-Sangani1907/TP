@@ -3,13 +3,12 @@
  *   TECHITHON 2026 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
- *   Designed & Developed by: Vijay Sangani
- *   
- *   Contributors: Mayank Bhuvad, Shlok Nair, Yug Sawant
+ *   Designed & Developed by: Vijay Sangani, Mayank Bhuvad, Shlok Nair, Yug Sawant
  *
  *   (c) 2026 All Rights Reserved.
  *  --------------------------------------------------------------------------
  */
+
 import LangBuddy from '../assests/langbuddy.png';
 import Glove from '../assests/Glove.png';
 import HumanoidRobot from '../assests/Humanoid Robot.png';
