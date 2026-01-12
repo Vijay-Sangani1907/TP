@@ -13,7 +13,8 @@ import LangBuddy from '../assests/langbuddy.png';
 import Glove from '../assests/Glove.png';
 import HumanoidRobot from '../assests/Humanoid Robot.png';
 import Ecofin from '../assests/EcoFin.png';
-import MTPY from '../assests/MTPY.png'
+import MTPY from '../assests/MTPY.png';
+import FogHandwash from '../assests/Fog_Handwash.jpeg';
 
 export const PROJECTS = [
   {
@@ -28,20 +29,20 @@ export const PROJECTS = [
   {
     id: 2,
     title: "Smart Glove Safety",
-    category: ["Blockchain"],
+    category: ["IoT", "Wearables"],
     degree: "B.Sc",
     image: Glove,
     description: "The Smart Glove acts as an intelligent barrier against electric shocks, extreme heat, and hazardous vibrations. By transforming standard protective gear into a responsive guardian, it provides real-time alerts to keep you safe in high-risk environments. Work with total confidence knowing that advanced protection is always at your fingertips.",
-    tech: ["Raspberry Pi", "Multi-Hazard Detection Module", "Python"]
+    tech: ["Esp 32", "Multiple Sensors", "C++"]
   },
   {
     id: 3,
     title: "Humanoid Robot",
-    category: ["AR/VR"],
+    category: ["Robotics", "AI"],
     degree: "B.Sc",
     image: HumanoidRobot,
-    description: "Redefining safety with human-like adaptability, this humanoid robot provides tireless 24/7 surveillance and hazard detection for homes and facilities. Equipped with intelligent navigation and real-time monitoring, it autonomously patrols to identify threats before they escalate. It stands as a vigilant, reliable guardian, ensuring complete peace of mind through seamless automation.",
-    tech: ["Raspberry Pi", "AI-powered camera module", "High-Torque Motors", "Python"]
+    description: "Redefining safety with human-like adaptability, this humanoid robot provides tireless 24/7 surveillance and hazard detection for college campus. Equipped with intelligent navigation and real-time monitoring, it autonomously patrols to identify threats before they escalate. It stands as a vigilant, reliable guardian, ensuring complete peace of mind through seamless automation.",
+    tech: ["Nvidia Jetson Eagle 101", "Raspberry Pi", "AI-powered camera module", "High-Torque Motors", "Python"]
   },
   {
     id: 4,
@@ -82,11 +83,11 @@ export const PROJECTS = [
   {
     id: 8,
     title: "Fog Handwash",
-    category: ["AR/VR"],
+    category: ["IoT"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "Augmented reality surgical overlay system helping students practice complex procedures with real-time anatomical guidance.",
-    tech: ["Unity", "ARCore", "Hololens", "C#"]
+    image: FogHandwash,
+    description: "A Fog Handwash Machine sanitizes hands using a fine mist, offering fast, touchless, and water-saving hygiene.",
+    tech: ["Disinfectant Tank", "Enclosure & Mounting Frame", "Ultrasonic Sensor"]
   },
   {
     id: 9,
