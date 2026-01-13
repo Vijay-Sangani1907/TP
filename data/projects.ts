@@ -101,7 +101,7 @@ export const PROJECTS = [
   {
     id: 10, // Ask
     title: "Eco grip",
-    category: ["IoT"],
+    category: ["Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
     description: "IoT-based smart farming solution monitoring crop health, soil moisture, and weather conditions to optimize yield and reduce water usage by 30%.",
@@ -110,7 +110,7 @@ export const PROJECTS = [
   {
     id: 11, // Ask
     title: "ISR UAV",
-    category: ["AR/VR"],
+    category: ["IoT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
     description: "Immersive virtual learning environment for students to explore historical events and scientific concepts in a 3D space.",
@@ -119,7 +119,7 @@ export const PROJECTS = [
   {
     id: 12, // Ask
     title: "CNC Machine",
-    category: ["Blockchain"],
+    category: ["Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
     description: "Blockchain platform incentivizing carbon offsetting through tradable carbon credits verified via IoT sensors.",
@@ -128,7 +128,7 @@ export const PROJECTS = [
   {
     id: 13, // Ask
     title: "Robotic arm/Wall-E Bot",
-    category: ["AI"],
+    category: ["Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
     description: "AI-powered tutoring system that adapts to individual learning styles and provides personalized feedback.",
@@ -137,7 +137,7 @@ export const PROJECTS = [
   {
     id: 14, // Ask
     title: "Learn IT using AR",
-    category: ["IoT"],
+    category: ["AR/VR"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
     description: "IoT-based urban sensing platform monitoring air quality, noise levels, and traffic patterns to improve city planning.",
@@ -146,7 +146,7 @@ export const PROJECTS = [
   {
     id: 15, // Ask
     title: "Atharva Satellite Ground Station",
-    category: ["Blockchain"],
+    category: ["IT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
     description: "Blockchain platform for secure and transparent health records management.",
@@ -155,7 +155,7 @@ export const PROJECTS = [
   {
     id: 16, // Ask
     title: "Solar Powered Water Surface Cleaning Boat",
-    category: ["AI"],
+    category: ["AI", "Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
     description: "AI-powered smart mirror that displays weather, news, and personal information.",
@@ -164,7 +164,7 @@ export const PROJECTS = [
   {
     id: 17, // Ask
     title: "Margdarshak",
-    category: ["AR/VR"],
+    category: ["AR/VR", "IoT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
     description: "Immersive virtual learning environment for students to explore historical events and scientific concepts in a 3D space.",
@@ -173,7 +173,7 @@ export const PROJECTS = [
   {
     id: 18, // Ask
     title: "AI optimized 3D printing for structural and electrical component fabrication.",
-    category: ["Blockchain"],
+    category: ["AI"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
     description: "Blockchain platform incentivizing carbon offsetting through tradable carbon credits verified via IoT sensors.",
@@ -182,7 +182,7 @@ export const PROJECTS = [
   {
     id: 19, // Ask
     title: "Krishi Kaushal.",
-    category: ["AI"],
+    category: ["IoT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
     description: "AI-powered tutoring system that adapts to individual learning styles and provides personalized feedback.",
