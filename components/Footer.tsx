@@ -10,7 +10,8 @@
  */
 
 import React from 'react';
-import logoSrc from '../assests/logo.png'; // Ensure the logo image is in the specified path
+import logoSrc from '../assests/logo wth white name.png'; // Ensure the logo image is in the specified path
+import map from '../assests/mapplaceholder.png';
 
 export const Footer: React.FC = () => {
   return (
@@ -31,7 +32,7 @@ export const Footer: React.FC = () => {
         <div style={{ flex: '1 1 300px', maxWidth: '450px' }}>
           {/* Logo Section - Clickable */}
           <a 
-            href="https://atharvacollege.com/" 
+            href="https://atharvauniversity.org" 
             target="_blank" 
             rel="noopener noreferrer" 
             style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '25px', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
@@ -47,7 +48,7 @@ export const Footer: React.FC = () => {
                     textTransform: 'uppercase',
                     color: '#fff'
                 }}>
-                    ATHARVA
+                    {/*ATHARVA*/}
                 </h3>
                 <div style={{ 
                     fontSize: '0.85rem', 
@@ -56,7 +57,7 @@ export const Footer: React.FC = () => {
                     color: '#ccc',
                     textTransform: 'uppercase' 
                 }}>
-                    UNIVERSITY • MUMBAI
+                    {/* UNIVERSITY • MUMBAI */}
                 </div>
              </div>
           </a>
@@ -131,7 +132,7 @@ export const Footer: React.FC = () => {
                     (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.1)';
                 }}
                 >
-                    <img src={logoSrc} alt="Map placeholder" className="map-placeholder-img"/>
+                    <img src={map} alt="Map placeholder" className="map-placeholder-img"/>
                 </div>
             </a>
         </div>

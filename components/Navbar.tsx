@@ -11,7 +11,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import logoSrc from '../assests/logo.png';
+import logoSrc from '../assests/logo wth white name.png';
 import ieeeLogoSrc from '../assests/IEEE logo.png'
 
 // Updated Menu Items with Paths

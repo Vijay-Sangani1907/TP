@@ -18,7 +18,7 @@ import FogHandwash from '../assests/Fog_Handwash.jpeg';
 
 export const PROJECTS = [
   {
-    id: 1,
+    id: 1, // Done excet pt image
     title: "ARON Model",
     category: ["IoT", "Robotics"],
     degree: "B.Sc",
@@ -27,7 +27,7 @@ export const PROJECTS = [
     tech: ["Thony", "Raspberry Pi", "Python", "OpenCV", "Ultrasonic Sensors"]
   },
   {
-    id: 2,
+    id: 2, // Done
     title: "Smart Glove Safety",
     category: ["IoT", "Wearables"],
     degree: "B.Sc",
@@ -36,7 +36,7 @@ export const PROJECTS = [
     tech: ["Esp 32", "Multiple Sensors", "C++"]
   },
   {
-    id: 3,
+    id: 3, // Done
     title: "Humanoid Robot",
     category: ["Robotics", "AI"],
     degree: "B.Sc",
@@ -45,7 +45,7 @@ export const PROJECTS = [
     tech: ["Nvidia Jetson Eagle 101", "Raspberry Pi", "AI-powered camera module", "High-Torque Motors", "Python"]
   },
   {
-    id: 4,
+    id: 4, // Done, ask if image ok
     title: "Ecofin",
     category: ["IoT", "Robotics"],
     degree: "B.Sc",
@@ -54,7 +54,7 @@ export const PROJECTS = [
     tech: ["Raspberry Pi", "Servos", "Batteries", "Quality Detection Modules"]
   },
   {
-    id: 5,
+    id: 5, // Done
     title: "LangBuddy",
     category: ["AI", "IoT"],
     degree: "B.Sc",
@@ -63,7 +63,7 @@ export const PROJECTS = [
     tech: ["Gradio", "Raspberry Pi", "Python", "Transformers", "Speech-to-Text models", "Text-to-Speech models"]
   },
   {
-    id: 6,
+    id: 6, //Ask
     title: "FPV Nanon Drone",
     degree: "B.Sc",
     category: ["IoT"],
@@ -72,7 +72,7 @@ export const PROJECTS = [
     tech: ["Node.js", "MQTT", "React Native", "InfluxDB"]
   },
   {
-    id: 7,
+    id: 7, // Done
     title: "MTPY-Moving Technology Powering Youth",
     category: ["Robotics", "AI", "IoT"],
     degree: "B.Sc",
@@ -81,7 +81,7 @@ export const PROJECTS = [
     tech: ["Arduino", "Raspberry Pi", "Python", "Servo Motors", "Speech Recognition module", "Text-to-Speech module", "Bluetooth Integration"]
   },
   {
-    id: 8,
+    id: 8, // Done
     title: "Fog Handwash",
     category: ["IoT"],
     degree: "B.Sc",
@@ -90,7 +90,7 @@ export const PROJECTS = [
     tech: ["Disinfectant Tank", "Enclosure & Mounting Frame", "Ultrasonic Sensor"]
   },
   {
-    id: 9,
+    id: 9, // Ask
     title: "Judges of Hades",
     category: ["AI"],
     degree: "B.Sc",
@@ -99,7 +99,7 @@ export const PROJECTS = [
     tech: ["Qiskit", "Python", "PyTorch", "IBM Q"]
   },
   {
-    id: 10,
+    id: 10, // Ask
     title: "Eco grip",
     category: ["IoT"],
     degree: "B.E",
@@ -108,7 +108,7 @@ export const PROJECTS = [
     tech: ["ESP32", "Node-RED", "React", "Firebase"]
   },
   {
-    id: 11,
+    id: 11, // Ask
     title: "ISR UAV",
     category: ["AR/VR"],
     degree: "B.E",
@@ -117,7 +117,7 @@ export const PROJECTS = [
     tech: ["Unity", "C#", "ARCore", "Vuforia"]
   },
   {
-    id: 12,
+    id: 12, // Ask
     title: "CNC Machine",
     category: ["Blockchain"],
     degree: "B.E",
@@ -126,7 +126,7 @@ export const PROJECTS = [
     tech: ["Ethereum", "Solidity", "React", "IPFS"]
   },
   {
-    id: 13,
+    id: 13, // Ask
     title: "Robotic arm/Wall-E Bot",
     category: ["AI"],
     degree: "B.E",
@@ -135,7 +135,7 @@ export const PROJECTS = [
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
   {
-    id: 14,
+    id: 14, // Ask
     title: "Learn IT using AR",
     category: ["IoT"],
     degree: "B.E",
@@ -144,7 +144,7 @@ export const PROJECTS = [
     tech: ["ESP32", "Node-RED", "React", "Firebase"]
   },
   {
-    id: 15,
+    id: 15, // Ask
     title: "Atharva Satellite Ground Station",
     category: ["Blockchain"],
     degree: "B.E",
@@ -153,7 +153,7 @@ export const PROJECTS = [
     tech: ["Ethereum", "Solidity", "React", "IPFS"]
   },
   {
-    id: 16,
+    id: 16, // Ask
     title: "Solar Powered Water Surface Cleaning Boat",
     category: ["AI"],
     degree: "B.E",
@@ -162,7 +162,7 @@ export const PROJECTS = [
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
   {
-    id: 17,
+    id: 17, // Ask
     title: "Margdarshak",
     category: ["AR/VR"],
     degree: "B.E",
@@ -171,7 +171,7 @@ export const PROJECTS = [
     tech: ["Unity", "C#", "ARCore", "Vuforia"]
   },
   {
-    id: 18,
+    id: 18, // Ask
     title: "AI optimized 3D printing for structural and electrical component fabrication.",
     category: ["Blockchain"],
     degree: "B.E",
@@ -180,7 +180,7 @@ export const PROJECTS = [
     tech: ["Ethereum", "Solidity", "React", "IPFS"]
   },
   {
-    id: 19,
+    id: 19, // Ask
     title: "Krishi Kaushal.",
     category: ["AI"],
     degree: "B.E",
@@ -189,7 +189,7 @@ export const PROJECTS = [
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
   {
-    id: 20,
+    id: 20, // Ask
     title: "",
     category: ["IoT"],
     degree: "",
