@@ -15,6 +15,9 @@ import HumanoidRobot from '../assests/Humanoid Robot.png';
 import Ecofin from '../assests/EcoFin.png';
 import MTPY from '../assests/MTPY.png';
 import FogHandwash from '../assests/Fog_Handwash.jpeg';
+import Judge from '../assests/JudgeOfHades.png';
+import FPV from '../assests/FPVNanodrone.png';
+import ARON from '../assests/aron.png';
 
 export const PROJECTS = [
   {
@@ -22,7 +25,7 @@ export const PROJECTS = [
     title: "ARON Model",
     category: ["IoT", "Robotics"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    image: ARON,
     description: "ARON Model is an automated robotic system designed for safe and efficient manhole and sewer cleaning. It eliminates the need for manual scavenging by using smart sensors, real-time monitoring, and a crane-assisted mechanism to inspect, detect, and remove waste—ensuring zero human entry into hazardous environments.",
     tech: ["Thony", "Raspberry Pi", "Python", "OpenCV", "Ultrasonic Sensors"]
   },
@@ -63,12 +66,12 @@ export const PROJECTS = [
     tech: ["Gradio", "Raspberry Pi", "Python", "Transformers", "Speech-to-Text models", "Text-to-Speech models"]
   },
   {
-    id: 6, //Ask
+    id: 6, // Done
     title: "FPV Nanon Drone",
     degree: "B.Sc",
     category: ["IoT"],
-    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80",
-    description: "A small, compact drone with high level maneuvering and agility. Developed for going into cramped spaces or manuvering exercises.",
+    image: FPV,
+    description: "Engineered for environments where standard aircraft cannot go, this ultra-compact drone delivers high-level agility and precision. It navigates confined structures and narrow passages with ease, serving as the ultimate tool for critical inspections in tight quarters and advanced maneuvering exercises.",
     tech: ["ROSS", "C", "Kinematics", "MATLAB"]
   },
   {
@@ -90,11 +93,11 @@ export const PROJECTS = [
     tech: ["Disinfectant Tank", "Enclosure & Mounting Frame", "Ultrasonic Sensor"]
   },
   {
-    id: 9, // Ask
+    id: 9, // done, ask if image ok
     title: "Judges of Hades",
     category: ["AI"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
+    image: Judge,
     description: "An Agentic Modern Decision Support System useful for new startup entrepreneurs making decision making and perspective professional advices easy to access and available.",
     tech: ["Python", "LangGraph", "Groq", "Supabase"]
   },
