@@ -95,8 +95,8 @@ export const PROJECTS = [
     category: ["AI"],
     degree: "B.Sc",
     image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
-    description: "Experimental neural network optimized for quantum simulation processing, attempting to bridge classical ML with quantum states.",
-    tech: ["Qiskit", "Python", "PyTorch", "IBM Q"]
+    description: "An Agentic Modern Decision Support System useful for new startup entrepreneurs making decision making and perspective professional advices easy to access and available.",
+    tech: ["Python", "LangGraph", "Groq", "Supabase"]
   },
   {
     id: 10, // Ask
