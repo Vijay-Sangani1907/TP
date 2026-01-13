@@ -68,8 +68,8 @@ export const PROJECTS = [
     degree: "B.Sc",
     category: ["IoT"],
     image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80",
-    description: "Home energy management system optimizing power usage based on real-time grid pricing and renewable energy availability. Reduces average household energy bills by 25%.",
-    tech: ["Node.js", "MQTT", "React Native", "InfluxDB"]
+    description: "A small, compact drone with high level maneuvering and agility. Developed for going into cramped spaces or manuvering exercises.",
+    tech: ["ROSS", "C", "Kinematics", "MATLAB"]
   },
   {
     id: 7, // Done
