@@ -9,17 +9,18 @@
  *  --------------------------------------------------------------------------
  */
 
-import LangBuddy from '../assests/langbuddy.png';
-import Glove from '../assests/Glove.png';
-import HumanoidRobot from '../assests/Humanoid Robot.png';
-import Ecofin from '../assests/EcoFin.png';
-import MTPY from '../assests/MTPY.png';
+import LangBuddy from '../assests/langbuddy.jpeg';
+import Glove from '../assests/Glove.jpeg';
+import HumanoidRobot from '../assests/HumanoidRobot.jpeg';
+import Ecofin from '../assests/EcoFin.jpeg';
+import MTPY from '../assests/MTPY.jpeg';
 import FogHandwash from '../assests/Fog_Handwash.jpeg';
-import Judge from '../assests/JudgeOfHades.png';
-import FPV from '../assests/FPVNanodrone.png';
-import ARON from '../assests/aron.png';
+import Judge from '../assests/JudgeOfHades.jpeg';
+import FPV from '../assests/FPVNanodrone.jpeg';
+import ARON from '../assests/aron.jpeg';
 
 export const PROJECTS = [
+  /* B.Sc Done */
   {
     id: 1, // Done excet pt image
     title: "ARON Model",
@@ -101,6 +102,7 @@ export const PROJECTS = [
     description: "An Agentic Modern Decision Support System useful for new startup entrepreneurs making decision making and perspective professional advices easy to access and available.",
     tech: ["Python", "LangGraph", "Groq", "Supabase"]
   },
+  /* B.E, B.Tech, and others */
   {
     id: 10, // Ask
     title: "Eco grip",
