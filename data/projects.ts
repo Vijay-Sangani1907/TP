@@ -18,6 +18,8 @@ import FogHandwash from '../assests/Fog_Handwash.jpeg';
 import Judge from '../assests/JudgeOfHades.jpeg';
 import FPV from '../assests/FPVNanodrone.jpeg';
 import ARON from '../assests/aron.jpeg';
+import RoboticArm from '../assests/RoboticArm.jpeg';
+import ISRUAV from '../assests/ISRUAV.jpeg';
 
 export const PROJECTS = [
   /* B.Sc Done */
@@ -117,9 +119,9 @@ export const PROJECTS = [
     title: "ISR UAV",
     category: ["IoT"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "Immersive virtual learning environment for students to explore historical events and scientific concepts in a 3D space.",
-    tech: ["Unity", "C#", "ARCore", "Vuforia"]
+    image: ISRUAV,
+    description: "AEGIS is an advanced aerial intelligence system designed to provide real-time surveillance and critical situational awareness from the sky. It combines autonomous flight with precision optical tracking to ensure complete visibility for mission-critical operations.",
+    tech: ["Raspberry Pi", "Flight Controller", "Carbon Fiber Frame", "High-Resolution Camera"]
   },
   {
     id: 12, // Ask
@@ -135,9 +137,9 @@ export const PROJECTS = [
     title: "Robotic arm/Wall-E Bot",
     category: ["Robotics"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "AI-powered tutoring system that adapts to individual learning styles and provides personalized feedback.",
-    tech: ["Python", "TensorFlow", "React", "Firebase"]
+    image: RoboticArm,
+    description: "Unlock the power of personal automation with this high-precision robotic manipulator. Designed for versatility and adaptability, it seamlessly bridges the gap between digital commands and physical action, serving as a reliable platform for everything from educational research to complex industrial prototyping.",
+    tech: ["Python Automation", "Custom 3D Printed Parts", "Precision Actuators", "Microcontrollers Arcghitecture"]
   },
   {
     id: 14, // Ask
@@ -145,8 +147,8 @@ export const PROJECTS = [
     category: ["AR/VR"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    description: "IoT-based urban sensing platform monitoring air quality, noise levels, and traffic patterns to improve city planning.",
-    tech: ["ESP32", "Node-RED", "React", "Firebase"]
+    description: "This augmented reality platform transforms static learning materials into immersive, interactive 3D experiences. By visualizing complex concepts directly in the real world, it bridges the gap between theory and practice, making education more engaging and easier to understand for students of all levels.",
+    tech: ["Unity", "C#", "ARCore", "Vuforia"]
   },
   {
     id: 15, // Ask
