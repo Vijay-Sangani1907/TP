@@ -20,6 +20,14 @@ import FPV from '../assests/FPVNanodrone.jpeg';
 import ARON from '../assests/aron.jpeg';
 import RoboticArm from '../assests/RoboticArm.jpeg';
 import ISRUAV from '../assests/ISRUAV.jpeg';
+import EcoGrip from '../assests/ecogrip.jpeg';
+import CNC from '../assests/cnc.jpeg';
+import LearnitAR from '../assests/AR.jpeg';
+import SatelliteGroundStation from '../assests/satellite.jpeg';
+import SolarBot from '../assests/solarboat.jpeg';
+import KrishiKaushal from '../assests/krishikaushal.jpeg';
+import Margdarshak from '../assests/marg.jpeg';
+import AI3DPrinter from '../assests/aiprint.jpeg';
 
 export const PROJECTS = [
   /* B.Sc Done */
@@ -106,31 +114,31 @@ export const PROJECTS = [
   },
   /* B.E, B.Tech, and others */
   {
-    id: 10, // Ask
+    id: 10, // Image
     title: "Eco grip",
-    category: ["Robotics"],
+    category: ["Robotics", "Computer Vision"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    description: "A robotic arm with object detection which acts upon objects using the object detection algorithm.",
-    tech: ["ESP32", "RaspberryPI", "Python", "OpenCV"]
+    image: EcoGrip,
+    description: "Eco Grip is an autonomous robotic arm system designed to identify and sort various objects using real-time computer vision algorithms. The arm interprets visual data from a camera to execute precise physical actions upon detected items, automating handling tasks based on what it 'sees'.",
+    tech: ["Python", "OpenCV", "YOLO", "TensorFlow", "Raspberry Pi", "Servo Motors", "Webcam"]
   },
   {
-    id: 11, // Done
+    id: 11, // Image
     title: "ISR UAV",
-    category: ["IoT"],
+    category: ["Aerial Robotics", "Surveillance"],
     degree: "B.E",
     image: ISRUAV,
-    description: "A UAV drone specializing in low altitude flying and RC controlling.",
-    tech: ["Unity", "C#", "ARCore", "Vuforia"]
+    description: "AEGIS is an advanced aerial intelligence system designed to provide real-time surveillance and critical situational awareness from the sky. It offers RC flight control and a low altitude camera feed for monitoring and reconnaissance missions.",
+    tech: ["Python", "FPV Camera", "Brushless Motors", "Flight Controller", "LiPo Battery"]
   },
   {
     id: 12, // Ask
     title: "CNC Machine",
-    category: ["Robotics"],
+    category: ["Mechatronics", "Advanced Manufacturing"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
-    description: "Carrying out multiple processes in one setup, ensuring performance and cost efficiency.",
-    tech: ["Ethereum", "Solidity", "React", "IPFS"]
+    image: CNC,
+    description: "A hybrid manufacturing unit that integrates 3D printing, laser engraving, and CNC milling into a single gantry system to save workspace and hardware costs. It enables seamless transitions between additive and subtractive manufacturing processes within one coordinated setup.",
+    tech: ["Stepper Motors", "Laser Module", "CNC Milling Module","Spindle Motor"]
   },
   {
     id: 13, // Done
@@ -138,62 +146,62 @@ export const PROJECTS = [
     category: ["Robotics"],
     degree: "B.E",
     image: RoboticArm,
-    description: "AI based robotic arm with multiple degrees of freedom useful for numerous use cases.",
-    tech: ["Python", "TensorFlow", "React", "Firebase"]
+    description: "Unlock the power of personal automation with this high-precision robotic manipulator. Designed for versatility and adaptability, it seamlessly bridges the gap between digital commands and physical action, serving as a reliable platform for everything from educational research to complex industrial prototyping.",
+    tech: ["Stepper Motors", "Inverse Kinematics", "C++", "Custom Chassis"]
   },
   {
     id: 14, // Ask
     title: "Learn IT using AR",
     category: ["AR/VR"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    description: "AR based learning platform used to turn 2D blueprints to real life objects.",
-    tech: ["ESP32", "Node-RED", "React", "Firebase"]
+    image: LearnitAR,
+    description: "An interactive educational platform that transforms static 2D technical blueprints into immersive 3D augmented reality models. It bridges the gap between theory and practice by allowing users to visualize complex structures and assembly processes directly through their smartphones.",
+    tech: ["Unity", "Vuforia", "C#", "Firebase", "Blender"]
   },
   {
     id: 15, // Ask
     title: "Atharva Satellite Ground Station",
-    category: ["IT"],
+    category: ["Satellite Communications"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
-    description: "A satellite ground station with real time radio relays",
-    tech: ["Ethereum", "Solidity", "React", "IPFS"]
+    image: SatelliteGroundStation,
+    description: "An advanced ground station infrastructure capable of full-duplex communication with Low Earth Orbit (LEO) satellites. It utilizes automated tracking systems and high-gain antenna arrays to secure high-fidelity telemetry and payload data for academic research and mission control operations.",
+    tech: ["MATLAB & Simulink", "GNU Rado Companion"]
   },
   {
     id: 16, // Ask
     title: "Solar Powered Water Surface Cleaning Boat",
-    category: ["AI", "Robotics"],
+    category: ["Robotics"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "Solar Powered boat used for garbage collection and water surface cleaning",
-    tech: ["Python", "TensorFlow", "React", "Firebase"]
+    image: SolarBot,
+    description: "An eco-friendly autonomous vehicle designed to skim and collect floating debris from water surfaces. Powered entirely by solar energy, it offers a sustainable, low-maintenance solution for maintaining cleanliness in lakes, ponds, and small waterways.",
+    tech: ["Solar Panel", "Arduino", "Lead-Acid Battery", "Geared Motors"]
   },
   {
     id: 17, // Ask
     title: "Margdarshak",
-    category: ["AR/VR", "IoT"],
+    category: ["AR/VR", "IoT","Wearables"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "Iot based voice assistant connected to glasses which helps in visual description",
-    tech: ["Unity", "C#", "ARCore", "Vuforia"]
+    image: Margdarshak,
+    description: "A smart wearable system designed to assist visually impaired individuals by narrating their surroundings. It captures visual data through camera-equipped glasses and processes it using cloud-based AI to provide real-time audio feedback via a voice assistant.",
+    tech: ["Python", "OpenCV", "Text-to-Speech", "Pi Camera Module"]
   },
   {
     id: 18, // Ask
     title: "AI optimized 3D printing for structural and electrical component fabrication.",
-    category: ["AI"],
+    category: ["AI", "Advanced Manufacturing"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
-    description: "AI based 3D printer optimized for structural and electrical component fabrication.",
-    tech: ["Ethereum", "Solidity", "React", "IPFS"]
+    image: AI3DPrinter,
+    description: "A hybrid 3D printing system capable of fabricating structural parts and embedded electrical circuits simultaneously. It utilizes computer vision and machine learning to optimize print parameters in real-time, automatically adjusting material flow and toolpaths to ensure both high structural integrity and reliable conductivity in the printed circuits.",
+    tech: ["OpenCV", "TensorFlow Lite", "Python", "Klipper Firmware"]
   },
   {
     id: 19, // Ask
     title: "Krishi Kaushal.",
-    category: ["IoT", "AI"],
+    category: ["Robotics", "AI"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "AI based Rover which helps in farming activities and analysis.",
-    tech: ["Python", "TensorFlow", "React", "Firebase"]
+    image: KrishiKaushal,
+    description: "An intelligent autonomous rover engineered to assist farmers by performing real-time soil health analysis and targeted crop monitoring. It utilizes deep learning algorithms to navigate crop rows safely while collecting environmental data to optimize yield and reduce reliance on manual labor.",
+    tech: ["High Torque DC Motors", "TensorFlow", "OpenCV", "Nvidia Jetson Nano"]
   },
   {
     id: 20, // Ask
