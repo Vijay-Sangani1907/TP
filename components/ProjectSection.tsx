@@ -17,13 +17,12 @@ import { ProjectModal } from './ProjectModal';
 export const ProjectsSection: React.FC = () => {
   // Default to B.E as it is now first
   const [activeDegree, setActiveDegree] = useState('B.E');
-  const [activeCategories, setActiveCategories] = useState<string[]>([]); // CHANGED: Now an array for multi-select
+  const [activeCategories, setActiveCategories] = useState<string[]>([]);
   const [filteredProjects, setFilteredProjects] = useState(PROJECTS);
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const categories = ['AI', 'Blockchain', 'AR/VR', 'IoT', 'Robotics'];
-  // Exact options requested: B.E, B.Sc, B.Tech
+  const categories = ['AI', 'AR/VR', 'IoT', 'Robotics'];
   const degrees = ['B.E', 'B.Sc', 'B.Tech'];
 
   useEffect(() => {

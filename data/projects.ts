@@ -9,20 +9,26 @@
  *  --------------------------------------------------------------------------
  */
 
-import LangBuddy from '../assests/langbuddy.png';
-import Glove from '../assests/Glove.png';
-import HumanoidRobot from '../assests/Humanoid Robot.png';
-import Ecofin from '../assests/EcoFin.png';
-import MTPY from '../assests/MTPY.png';
+import LangBuddy from '../assests/langbuddy.jpeg';
+import Glove from '../assests/Glove.jpeg';
+import HumanoidRobot from '../assests/HumanoidRobot.jpeg';
+import Ecofin from '../assests/EcoFin.jpeg';
+import MTPY from '../assests/MTPY.jpeg';
 import FogHandwash from '../assests/Fog_Handwash.jpeg';
+import Judge from '../assests/JudgeOfHades.jpeg';
+import FPV from '../assests/FPVNanodrone.jpeg';
+import ARON from '../assests/aron.jpeg';
+import RoboticArm from '../assests/RoboticArm.jpeg';
+import ISRUAV from '../assests/ISRUAV.jpeg';
 
 export const PROJECTS = [
+  /* B.Sc Done */
   {
     id: 1, // Done excet pt image
     title: "ARON Model",
     category: ["IoT", "Robotics"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&q=80",
+    image: ARON,
     description: "ARON Model is an automated robotic system designed for safe and efficient manhole and sewer cleaning. It eliminates the need for manual scavenging by using smart sensors, real-time monitoring, and a crane-assisted mechanism to inspect, detect, and remove waste—ensuring zero human entry into hazardous environments.",
     tech: ["Thony", "Raspberry Pi", "Python", "OpenCV", "Ultrasonic Sensors"]
   },
@@ -63,12 +69,12 @@ export const PROJECTS = [
     tech: ["Gradio", "Raspberry Pi", "Python", "Transformers", "Speech-to-Text models", "Text-to-Speech models"]
   },
   {
-    id: 6, //Ask
+    id: 6, // Done
     title: "FPV Nanon Drone",
     degree: "B.Sc",
     category: ["IoT"],
-    image: "https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=800&q=80",
-    description: "A small, compact drone with high level maneuvering and agility. Developed for going into cramped spaces or manuvering exercises.",
+    image: FPV,
+    description: "Engineered for environments where standard aircraft cannot go, this ultra-compact drone delivers high-level agility and precision. It navigates confined structures and narrow passages with ease, serving as the ultimate tool for critical inspections in tight quarters and advanced maneuvering exercises.",
     tech: ["ROSS", "C", "Kinematics", "MATLAB"]
   },
   {
@@ -90,14 +96,15 @@ export const PROJECTS = [
     tech: ["Disinfectant Tank", "Enclosure & Mounting Frame", "Ultrasonic Sensor"]
   },
   {
-    id: 9, // Ask
+    id: 9, // done, ask if image ok
     title: "Judges of Hades",
     category: ["AI"],
     degree: "B.Sc",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
+    image: Judge,
     description: "An Agentic Modern Decision Support System useful for new startup entrepreneurs making decision making and perspective professional advices easy to access and available.",
     tech: ["Python", "LangGraph", "Groq", "Supabase"]
   },
+  /* B.E, B.Tech, and others */
   {
     id: 10, // Ask
     title: "Eco grip",
@@ -108,12 +115,12 @@ export const PROJECTS = [
     tech: ["ESP32", "RaspberryPI", "Python", "OpenCV"]
   },
   {
-    id: 11, // Ask
+    id: 11, // Done
     title: "ISR UAV",
     category: ["IoT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "A UAV drone which can be remote controlled with low altitude capabilities.",
+    description: "Immersive virtual learning environment for students to explore historical events and scientific concepts in a 3D space.",
     tech: ["Unity", "C#", "ARCore", "Vuforia"]
   },
   {
@@ -126,12 +133,12 @@ export const PROJECTS = [
     tech: ["Ethereum", "Solidity", "React", "IPFS"]
   },
   {
-    id: 13, // Ask
+    id: 13, // Done
     title: "Robotic arm/Wall-E Bot",
     category: ["Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "Robotic Arm with multiple degrees of freedom can be used for numerous use cases",
+    description: "AI-powered tutoring system that adapts to individual learning styles and provides personalized feedback.",
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
   {
@@ -140,8 +147,8 @@ export const PROJECTS = [
     category: ["AR/VR"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    description: "AR based learning app which can take blueprints to objects in real life and much more",
-    tech: ["Unity", "C#", "React", "Firebase"]
+    description: "IoT-based urban sensing platform monitoring air quality, noise levels, and traffic patterns to improve city planning.",
+    tech: ["ESP32", "Node-RED", "React", "Firebase"]
   },
   {
     id: 15, // Ask

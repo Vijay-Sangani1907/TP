@@ -76,10 +76,9 @@ export const CardStack: React.FC<CardStackProps> = ({ items, onCardClick, scaleF
     const diffY = touchStartY.current - touchEndY;
 
     // Change to Horizontal Swipe for Card Swap to allow Vertical Scrolling
-    // Logic: If horizontal movement is greater than vertical movement AND exceeds threshold
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
-      if (diffX > 0) handleNext(); // Swipe Left -> Next
-      else handlePrev();           // Swipe Right -> Prev
+      if (diffX > 0) handleNext();
+      else handlePrev();
     }
     
     setTimeout(() => setIsPaused(false), 2000);
