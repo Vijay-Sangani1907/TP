@@ -22,7 +22,7 @@ export const ProjectsSection: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const categories = ['AI', 'AR/VR', 'IoT', 'Robotics'];
+  const categories = ['AI', 'AR/VR', 'IoT', 'Robotics', 'Surveillance', 'Advanced Manufacturing', 'Wearables', 'Space Tech'];
   const degrees = ['B.E', 'B.Sc', 'B.Tech'];
 
   useEffect(() => {

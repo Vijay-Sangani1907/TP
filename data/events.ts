@@ -30,7 +30,7 @@ export const SCHEDULE = {
         title: "Welcome Ceremony", 
         time: "09:00 AM", 
         location: "AUDITORIUM",
-        speaker: "Shri Sunil Rane Sir & Guest of Honor",
+        speaker: "Shri Sunil Rane Sir",
         image: Welcome,
         description: "Join us for the grand welcome ceremony where Shri Sunil Rane Sir and our esteemed Guest of Honor will inaugurate the Techithon 2026. Kickstart your journey with inspiring words and a vision for the days ahead."
       },
@@ -39,7 +39,7 @@ export const SCHEDULE = {
         title: "Speech", 
         time: "10:15 AM", 
         location: "AUDITORIUM",
-        speaker: "Shri Sunil Rane Sir & Guest of Honour",
+        speaker: "Guest of Honour",
         image: Speech,
         description: "Hear from Shri Sunil Rane Sir and our Guest of Honour as they share their insights on the future of technology, innovation, and the importance of events like Techithon in shaping the next generation of tech leaders."
       },

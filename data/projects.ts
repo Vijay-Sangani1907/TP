@@ -52,7 +52,7 @@ export const PROJECTS = [
   {
     id: 3, // Done
     title: "Humanoid Robot",
-    category: ["Robotics", "AI"],
+    category: ["Robotics", "AI", "Surveillance"],
     degree: "B.Sc",
     image: HumanoidRobot,
     description: "Redefining safety with human-like adaptability, this humanoid robot provides tireless 24/7 surveillance and hazard detection for college campus. Equipped with intelligent navigation and real-time monitoring, it autonomously patrols to identify threats before they escalate. It stands as a vigilant, reliable guardian, ensuring complete peace of mind through seamless automation.",
@@ -125,7 +125,7 @@ export const PROJECTS = [
   {
     id: 11, // Image
     title: "ISR UAV",
-    category: ["Aerial Robotics", "Surveillance"],
+    category: ["Robotics", "Surveillance"],
     degree: "B.E",
     image: ISRUAV,
     description: "AEGIS is an advanced aerial intelligence system designed to provide real-time surveillance and critical situational awareness from the sky. It offers RC flight control and a low altitude camera feed for monitoring and reconnaissance missions.",
@@ -161,7 +161,7 @@ export const PROJECTS = [
   {
     id: 15, // Ask
     title: "Atharva Satellite Ground Station",
-    category: ["Satellite Communications"],
+    category: ["Space Tech", "IoT"],
     degree: "B.E",
     image: SatelliteGroundStation,
     description: "An advanced ground station infrastructure capable of full-duplex communication with Low Earth Orbit (LEO) satellites. It utilizes automated tracking systems and high-gain antenna arrays to secure high-fidelity telemetry and payload data for academic research and mission control operations.",
