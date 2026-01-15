@@ -129,7 +129,7 @@ export const PROJECTS = [
     category: ["Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
-    description: "Blockchain platform incentivizing carbon offsetting through tradable carbon credits verified via IoT sensors.",
+    description: "Carrying out multiple processes in one setup, ensuring performance and cost efficiency.",
     tech: ["Ethereum", "Solidity", "React", "IPFS"]
   },
   {
