@@ -140,8 +140,8 @@ export const Footer: React.FC = () => {
       </div>
 
       <div style={{ textAlign: 'center', marginTop: '80px', color: '#666', fontSize: '0.9rem' }}>
-        &copy; {new Date().getFullYear()} Made by <a href="https://atharvauniversity.org" style={{color: '#00f3ff', textDecoration: 'none'}}>Atharva University</a><br></br>
-        TECHITHON 2026. All rights reserved.
+        &copy; {new Date().getFullYear()} TECHITHON | <a href="https://atharvauniversity.org" style={{color: '#00f3ff', textDecoration: 'none'}}>Atharva University, Mumbai</a><br></br>
+        All rights reserved. All intellectual property, content, and projects associated with this event remain the exclusive property of Atharva University Mumbai.
       </div>
     </footer>
   );
