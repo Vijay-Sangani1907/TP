@@ -119,7 +119,7 @@ export const PROJECTS = [
     title: "ISR UAV",
     category: ["IoT"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
+    image: ISRUAV,
     description: "A UAV drone specializing in low altitude flying and RC controlling.",
     tech: ["Unity", "C#", "ARCore", "Vuforia"]
   },
@@ -137,7 +137,7 @@ export const PROJECTS = [
     title: "Robotic arm/Wall-E Bot",
     category: ["Robotics"],
     degree: "B.E",
-    image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
+    image: RoboticArm,
     description: "AI based robotic arm with multiple degrees of freedom useful for numerous use cases.",
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
