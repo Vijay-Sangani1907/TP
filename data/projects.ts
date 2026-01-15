@@ -115,7 +115,7 @@ export const PROJECTS = [
     tech: ["ESP32", "Node-RED", "React", "Firebase"]
   },
   {
-    id: 11, // Ask
+    id: 11, // Done
     title: "ISR UAV",
     category: ["IoT"],
     degree: "B.E",
@@ -133,7 +133,7 @@ export const PROJECTS = [
     tech: ["Ethereum", "Solidity", "React", "IPFS"]
   },
   {
-    id: 13, // Ask
+    id: 13, // Done
     title: "Robotic arm/Wall-E Bot",
     category: ["Robotics"],
     degree: "B.E",
