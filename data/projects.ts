@@ -104,8 +104,8 @@ export const PROJECTS = [
     category: ["Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    description: "IoT-based smart farming solution monitoring crop health, soil moisture, and weather conditions to optimize yield and reduce water usage by 30%.",
-    tech: ["ESP32", "Node-RED", "React", "Firebase"]
+    description: "A robotic arm with object detection which acts upon objects using the object detection algorithm.",
+    tech: ["ESP32", "RaspberryPI", "Python", "OpenCV"]
   },
   {
     id: 11, // Ask
@@ -113,7 +113,7 @@ export const PROJECTS = [
     category: ["IoT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "Immersive virtual learning environment for students to explore historical events and scientific concepts in a 3D space.",
+    description: "A UAV drone which can be remote controlled with low altitude capabilities.",
     tech: ["Unity", "C#", "ARCore", "Vuforia"]
   },
   {
@@ -131,7 +131,7 @@ export const PROJECTS = [
     category: ["Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "AI-powered tutoring system that adapts to individual learning styles and provides personalized feedback.",
+    description: "Robotic Arm with multiple degrees of freedom can be used for numerous use cases",
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
   {
@@ -140,8 +140,8 @@ export const PROJECTS = [
     category: ["AR/VR"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    description: "IoT-based urban sensing platform monitoring air quality, noise levels, and traffic patterns to improve city planning.",
-    tech: ["ESP32", "Node-RED", "React", "Firebase"]
+    description: "AR based learning app which can take blueprints to objects in real life and much more",
+    tech: ["Unity", "C#", "React", "Firebase"]
   },
   {
     id: 15, // Ask
@@ -149,7 +149,7 @@ export const PROJECTS = [
     category: ["IT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
-    description: "Blockchain platform for secure and transparent health records management.",
+    description: "A satellite ground station with real time radio relays",
     tech: ["Ethereum", "Solidity", "React", "IPFS"]
   },
   {
@@ -158,7 +158,7 @@ export const PROJECTS = [
     category: ["AI", "Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "AI-powered smart mirror that displays weather, news, and personal information.",
+    description: "Solar Powered boat used for garbage collection and water surface cleaning",
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
   {
@@ -167,7 +167,7 @@ export const PROJECTS = [
     category: ["AR/VR", "IoT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "Immersive virtual learning environment for students to explore historical events and scientific concepts in a 3D space.",
+    description: "Iot based voice assistant connected to glasses which helps in visual description",
     tech: ["Unity", "C#", "ARCore", "Vuforia"]
   },
   {
@@ -176,16 +176,16 @@ export const PROJECTS = [
     category: ["AI"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1579761160399-112ba8d25d1d?w=800&q=80",
-    description: "Blockchain platform incentivizing carbon offsetting through tradable carbon credits verified via IoT sensors.",
+    description: "AI based 3D printer optimized for structural and electrical component fabrication.",
     tech: ["Ethereum", "Solidity", "React", "IPFS"]
   },
   {
     id: 19, // Ask
     title: "Krishi Kaushal.",
-    category: ["IoT"],
+    category: ["IoT", "AI"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "AI-powered tutoring system that adapts to individual learning styles and provides personalized feedback.",
+    description: "AI based Rover which helps in farming activities and analysis.",
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
   {
