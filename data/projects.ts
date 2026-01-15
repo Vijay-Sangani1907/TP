@@ -120,7 +120,7 @@ export const PROJECTS = [
     category: ["IoT"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "Immersive virtual learning environment for students to explore historical events and scientific concepts in a 3D space.",
+    description: "A UAV drone specializing in low altitude flying and RC controlling.",
     tech: ["Unity", "C#", "ARCore", "Vuforia"]
   },
   {
@@ -138,7 +138,7 @@ export const PROJECTS = [
     category: ["Robotics"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&q=80",
-    description: "AI-powered tutoring system that adapts to individual learning styles and provides personalized feedback.",
+    description: "AI based robotic arm with multiple degrees of freedom useful for numerous use cases.",
     tech: ["Python", "TensorFlow", "React", "Firebase"]
   },
   {
@@ -147,7 +147,7 @@ export const PROJECTS = [
     category: ["AR/VR"],
     degree: "B.E",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80",
-    description: "IoT-based urban sensing platform monitoring air quality, noise levels, and traffic patterns to improve city planning.",
+    description: "AR based learning platform used to turn 2D blueprints to real life objects.",
     tech: ["ESP32", "Node-RED", "React", "Firebase"]
   },
   {
