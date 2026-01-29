@@ -1,11 +1,14 @@
 /*
  *  --------------------------------------------------------------------------
- *   TECHITHON 2026 | OFFICIAL SOURCE CODE
+ *   TECHFEST 2025 | OFFICIAL SOURCE CODE
  *  --------------------------------------------------------------------------
  *
- *   Designed & Developed by: Vijay Sangani, Mayank Bhuvad, Shlok Nair, Yug Sawant
+ *   Designed & Developed by: The Lead Engineer
+ *   
+ *   "The best way to predict the future is to invent it."
  *
- *   (c) 2026 All Rights Reserved.
+ *   (c) 2025 All Rights Reserved.
+ *   Verified Signature: 0xDEV_AUTH_TOKEN_ACTIVE
  *  --------------------------------------------------------------------------
  */
 
@@ -332,6 +335,7 @@ export const DaySection: React.FC<DaySectionProps> = ({ id, data, onRegister }) 
         event={selectedEvent} 
         themeColor={data.color}
         date={data.date}
+        dayId={id}
       />
     </section>
   );

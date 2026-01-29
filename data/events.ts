@@ -9,10 +9,10 @@
  *  --------------------------------------------------------------------------
  */
 
-import Welcome from "../assests/Welcome.jpeg";
+import Welcome from "../assests/start.jpeg";
 import Speech from "../assests/speech.jpeg";
-import Exhibition from "../assests/exhibition.jpeg";
-import Hack from "../assests/hackathon.jpeg";
+import Exhibition from "../assests/projectexpo.jpeg";
+import Hack from "../assests/inaugration_hackathon.jpeg";
 import Valedictory from "../assests/Valedictory.jpeg";
 import end from "../assests/end.jpeg";
 import TT1 from "../assests/medium_long-tech-conferences.jpg";
